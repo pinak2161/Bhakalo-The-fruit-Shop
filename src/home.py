@@ -113,7 +113,7 @@ class Bhakalo:
         welcome_label.place(relx=0.5, rely=0.5, anchor="center")
     
 
-        
+
     
     def fruit_tab(self):
         #Show Font Library tab
@@ -146,7 +146,9 @@ class Bhakalo:
 
             self.fruit_tab_opened = True
 
-            #Create buttons for different fonts
+            #Create buttons for differnt fruits
+
+            #Apple
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/APPLE.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -160,8 +162,20 @@ class Bhakalo:
 
             self.button_label1 = ttk.Button(self.right_frame,text ="Apple", style="Rounded.TButton",command=self.appleClicked)
             self.button_label1.pack()
-            self.button_label1.place(x=100,y=340,anchor='nw')
+            self.button_label1.place(x=105,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image1 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image1)
+            self.l1 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l1.image_types = img
+            self.l1.pack()
+            self.l1.place(x=275, y=340, anchor="nw")
+
+            #Banana
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/BANANA.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -178,6 +192,17 @@ class Bhakalo:
             self.button_label2.place(x=425,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image2 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image2)
+            self.l2 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l2.image_types = img
+        
+            
+            #cherry
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Cherry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -192,6 +217,18 @@ class Bhakalo:
             self.button_label3.pack()
             self.button_label3.place(x=750,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image3 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image3)
+            self.l3 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l3.image_types = img
+            self.l3.pack()
+            self.l3.place(x=925, y=340, anchor="nw")
+
+            #Dragon Fruit
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Dragon Fruit.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -208,6 +245,18 @@ class Bhakalo:
             self.button_label4.place(x=100,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image4 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image4)
+            self.l4 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l4.image_types = img
+            self.l4.pack()
+            self.l4.place(x=275, y=600, anchor="nw")
+
+            #Gooseberry
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Gooseberry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -223,6 +272,19 @@ class Bhakalo:
             self.button_label5.place(x=425,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image5 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image5)
+            self.l5 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l5.image_types = img
+            self.l5.pack()
+            self.l5.place(x=600, y=600, anchor="nw")
+
+
+            #Jackfruit
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Jackfruit.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -236,6 +298,17 @@ class Bhakalo:
             self.button_label6 = ttk.Button(self.right_frame,text="Jack Fruit", style="Rounded.TButton",command=self.jackfruitClicked)
             self.button_label6.pack()
             self.button_label6.place(x=750,y=600,anchor='nw')
+
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image6 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image6)
+            self.l6 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l6.image_types = img
+            self.l6.pack()
+            self.l6.place(x=925, y=600, anchor="nw")
 
     def secondtab(self):
         #Show Font Library tab
@@ -268,7 +341,8 @@ class Bhakalo:
 
             self.secondtab_opened = True
 
-            #Create buttons for different fonts
+            #Create buttons for different fruits
+            #Lemon
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Lemon.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -284,6 +358,21 @@ class Bhakalo:
             self.button_label7.pack()
             self.button_label7.place(x=100,y=340,anchor='nw')
 
+
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image7 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image7)
+            self.l7 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l7.image_types = img
+            self.l7.pack()
+            self.l7.place(x=275, y=340, anchor="nw")
+
+
+
+            #Mango
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Mango.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -300,6 +389,19 @@ class Bhakalo:
             self.button_label8.place(x=425,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image8 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image8)
+            self.l8 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l8.image_types = img
+            self.l8.pack()
+            self.l8.place(x=600, y=340, anchor="nw")
+
+
+            #Orange
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Orange.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -314,6 +416,18 @@ class Bhakalo:
             self.button_label9.pack()
             self.button_label9.place(x=750,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image9 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image9)
+            self.l9 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l9.image_types = img
+            self.l9.pack()
+            self.l9.place(x=925, y=340, anchor="nw")
+
+            #pineapple
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Pineapple.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -330,6 +444,18 @@ class Bhakalo:
             self.button_label10.place(x=100,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image10 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image10)
+            self.l10 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l10.image_types = img
+            self.l10.pack()
+            self.l10.place(x=275, y=600, anchor="nw")
+
+            #Strawberry
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Strawberry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -345,6 +471,19 @@ class Bhakalo:
             self.button_label11.place(x=425,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image11 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image11)
+            self.l11 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l11.image_types = img
+            self.l11.pack()
+            self.l11.place(x=600, y=600, anchor="nw")
+
+
+            #Watermelon
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Watermelon.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -358,6 +497,18 @@ class Bhakalo:
             self.button_label12 = ttk.Button(self.right_frame,text="Watermelon", style="Rounded.TButton",command=self.watermelonClicked)
             self.button_label12.pack()
             self.button_label12.place(x=750,y=600,anchor='nw')
+
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image12 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image12)
+            self.l12 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l12.image_types = img
+            self.l12.pack()
+            self.l12.place(x=925, y=600, anchor="nw")
+
 
     def thirdtab(self):
         #Show Font Library tab
@@ -390,7 +541,8 @@ class Bhakalo:
 
             self.thirdtab_opened = True
 
-            #Create buttons for different fonts
+            #Create buttons for different fruits
+            #Quince
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Quince.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -402,10 +554,23 @@ class Bhakalo:
             self.label13.pack()
             self.label13.place(x=100, y=150, anchor="nw")
 
+
             self.button_label13 = ttk.Button(self.right_frame,text ="Quince", style="Rounded.TButton",command=self.quinceClicked)
             self.button_label13.pack()
             self.button_label13.place(x=100,y=340,anchor='nw')
+            
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image13 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image13)
+            self.l13 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l13.image_types = img
+            self.l13.pack()
+            self.l13.place(x=275, y=340, anchor="nw")
 
+             #Tomato   
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Tomato.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -422,6 +587,18 @@ class Bhakalo:
             self.button_label14.place(x=425,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image14 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image14)
+            self.l14 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l14.image_types = img
+            self.l14.pack()
+            self.l14.place(x=600, y=340, anchor="nw")
+
+            #Zucchini
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Zucchini.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -436,6 +613,19 @@ class Bhakalo:
             self.button_label15.pack()
             self.button_label15.place(x=750,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image15 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image15)
+            self.l15 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l15.image_types = img
+            self.l15.pack()
+            self.l15.place(x=925, y=340, anchor="nw")
+
+
+            #Custardapple
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Custardapple.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -452,6 +642,18 @@ class Bhakalo:
             self.button_label16.place(x=100,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image16 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image16)
+            self.l16 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l16.image_types = img
+            self.l16.pack()
+            self.l16.place(x=275, y=600, anchor="nw")
+
+            #   Kiwi
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Kiwi.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -467,6 +669,18 @@ class Bhakalo:
             self.button_label17.place(x=425,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image17 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image17)
+            self.l17 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l17.image_types = img
+            self.l17.pack()
+            self.l17.place(x=600, y=600, anchor="nw")
+
+            #Pomegranate
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Pomegranate.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -477,9 +691,20 @@ class Bhakalo:
             self.label18.pack()
             self.label18.place(x=750, y=400, anchor="nw")
 
-            self.button_label18 = ttk.Button(self.right_frame,text="Pomegranate", style="Rounded.TButton",command=self.pomogranateClicked)
+            self.button_label18 = ttk.Button(self.right_frame,text="Pomegranate", style="Rounded.TButton",command=self.pomegranateClicked)
             self.button_label18.pack()
             self.button_label18.place(x=750,y=600,anchor='nw')
+
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image18 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image18)
+            self.l18 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l18.image_types = img
+            self.l18.pack()
+            self.l18.place(x=925, y=600, anchor="nw")
 
     def fourthtab(self):
         #Show Font Library tab
@@ -511,8 +736,10 @@ class Bhakalo:
             self.button_nextpage.place(x=950,y=625,anchor='nw')         
 
             self.fourthtab_opened = True
+           
+            #Create buttons for different fruits
 
-            #Create buttons for different fonts
+            #Blackberry
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Blackberry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -529,6 +756,20 @@ class Bhakalo:
             self.button_label19.place(x=100,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image19 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image19)
+            self.l19 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l19.image_types = img
+            self.l19.pack()
+            self.l19.place(x=275, y=340, anchor="nw")
+
+
+
+            #Grapes
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Grapes.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -543,6 +784,19 @@ class Bhakalo:
             self.button_label20.pack()
             self.button_label20.place(x=425,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image20 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image20)
+            self.l20 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l20.image_types = img
+            self.l20.pack()
+            self.l20.place(x=600, y=340, anchor="nw")
+
+
+            #Pear
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Pear.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -559,6 +813,19 @@ class Bhakalo:
             self.button_label21.place(x=750,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image21 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image21)
+            self.l21 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l21.image_types = img
+            self.l21.pack()
+            self.l21.place(x=925, y=340, anchor="nw")
+
+            #Avacado
+            
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Avacado.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -573,6 +840,19 @@ class Bhakalo:
             self.button_label22.pack()
             self.button_label22.place(x=100,y=600,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image22 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image22)
+            self.l22 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l22.image_types = img
+            self.l22.pack()
+            self.l22.place(x=275, y=600, anchor="nw")
+
+
+            # Lichi
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Lichi.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -589,6 +869,20 @@ class Bhakalo:
             self.button_label23.place(x=425,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image23 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image23)
+            self.l23 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l23.image_types = img
+            self.l23.pack()
+            self.l23.place(x=600, y=600, anchor="nw")
+
+
+
+            #Blueberry
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Blueberry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -602,6 +896,17 @@ class Bhakalo:
             self.button_label24 = ttk.Button(self.right_frame,text="Blueberry", style="Rounded.TButton",command=self.blueberryClicked)
             self.button_label24.pack()
             self.button_label24.place(x=750,y=600,anchor='nw')
+
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image24 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image24)
+            self.l24 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l24.image_types = img
+            self.l24.pack()
+            self.l24.place(x=925, y=600, anchor="nw")
 
     def fifthtab(self):
         #Show Font Library tab
@@ -635,6 +940,7 @@ class Bhakalo:
             self.fifthtab_opened = True
 
             #Create buttons for different fonts
+            #Muskmelon
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Muskmelon.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -651,6 +957,19 @@ class Bhakalo:
             self.button_label25.place(x=100,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image25 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image25)
+            self.l25 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l25.image_types = img
+            self.l25.pack()
+            self.l25.place(x=275, y=340, anchor="nw")
+
+
+            #Papaya
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Papaya.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -665,6 +984,19 @@ class Bhakalo:
             self.button_label26.pack()
             self.button_label26.place(x=425,y=340,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image26 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image26)
+            self.l26 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l26.image_types = img
+            self.l26.pack()
+            self.l26.place(x=600, y=340, anchor="nw")
+
+
+            #Peach
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Peach.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -681,6 +1013,19 @@ class Bhakalo:
             self.button_label27.place(x=750,y=340,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image27 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image27)
+            self.l27 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l27.image_types = img
+            self.l27.pack()
+            self.l27.place(x=925, y=340, anchor="nw")
+
+
+            #Gauva
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Gauva.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -695,6 +1040,19 @@ class Bhakalo:
             self.button_label28.pack()
             self.button_label28.place(x=100,y=600,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image28 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image28)
+            self.l28 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l28.image_types = img
+            self.l28.pack()
+            self.l28.place(x=275, y=600, anchor="nw")
+
+
+            #Grapefruit
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Grapefruit.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
@@ -711,6 +1069,19 @@ class Bhakalo:
             self.button_label29.place(x=425,y=600,anchor='nw')
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image29 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image29)
+            self.l29 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l29.image_types = img
+            self.l29.pack()
+            self.l29.place(x=600, y=600, anchor="nw")
+
+
+            #Raspberry
+            script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/Raspberry.jpg")
             img = ImageTk.PhotoImage(Image.open(img_path))
             original_image = Image.open(img_path)
@@ -725,6 +1096,17 @@ class Bhakalo:
             self.button_label30.pack()
             self.button_label30.place(x=750,y=600,anchor='nw')
 
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
+            img = ImageTk.PhotoImage(Image.open(img_path))
+            original_image = Image.open(img_path)
+            image30 = original_image.resize((40, 40))  
+            img = ImageTk.PhotoImage(image30)
+            self.l30 = tk.Label(self.right_frame, image=img, background="#fffce9")
+            self.l30.image_types = img
+            self.l30.pack()
+            self.l30.place(x=925, y=600, anchor="nw")
+
     def account_tab(self):
         #Show Font Library tab
         if self.account_tab_opened:
@@ -735,6 +1117,25 @@ class Bhakalo:
                 widget.destroy()
             self.additional_widgets = []
         self.account_tab_opened =True
+        self.bt1 = ttk.Button(self.right_frame,text ="Your Information", style="Rounded.TButton")
+        self.bt1.pack()
+        self.bt1.place(x=150,y=100,anchor='nw')
+
+        self.bt2 = ttk.Button(self.right_frame,text ="Your Orders", style="Rounded.TButton")
+        self.bt2.pack()
+        self.bt2.place(x=600,y=100,anchor='nw')
+
+        self.bt3 = ttk.Button(self.right_frame,text ="Buy Again ", style="Rounded.TButton")
+        self.bt3.pack()
+        self.bt3.place(x=150,y=200,anchor='nw')
+
+        self.bt4 = ttk.Button(self.right_frame,text ="Your Rewards", style="Rounded.TButton")
+        self.bt4.pack()
+        self.bt4.place(x=600,y=200,anchor='nw')
+
+        self.bt5 = ttk.Button(self.right_frame,text ="See all", style="Rounded.TButton")
+        self.bt5.pack()
+        self.bt5.place(x=150,y=300,anchor='nw')
 
     def cart_tab(self):
         #Show Font Library tab
@@ -1200,6 +1601,7 @@ class Bhakalo:
 
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
+ 
 
     def papayaClicked(self):
         food_name = 'papaya'
@@ -1368,7 +1770,7 @@ class Bhakalo:
         self.button_label8.destroy()
         self.button_label9.destroy()
         self.button_label10.destroy()
-        self.button_label11.destroy()
+        self.button_label1.destroy()    
         self.button_label12.destroy()
         self.button_label13.destroy()
         self.button_label14.destroy()
