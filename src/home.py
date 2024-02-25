@@ -3,7 +3,7 @@ import tkinter as tk
 import os
 from tkinter import ttk, messagebox,PhotoImage,Label
 import requests
-#this is my project
+import webbrowser
 class Bhakalo:
     def __init__(self):
         #Initialize the Tkinter Root Window
@@ -748,15 +748,13 @@ class Bhakalo:
         self.cart_tab_opened = True
 
     def ourblogs_tab(self):
-        #Show Font Library tab
-        if self.ourblogs_tab_opened:
-            messagebox.showinfo("Already opened","Our blogs are already opened!")
-        else:
-            #Destroy existing widgets
-            for widget in self.additional_widgets:
-                widget.destroy()
-            self.additional_widgets = []    
-        self.ourblogs_tab_opened =  True
+          
+        # Replace "https://www.example.com/ourblogs" with your actual link
+        link = "https://www.fruit-forest.com/blog"
+        
+        # Open the link in the default web browser
+        webbrowser.open(link)
+        
         
     def get_nutrition_info(self, food_name):
         api_key = 'p5y9oPvsHagFwbduywWIYw==8eg8cKkiv8LupO2g'  # Replace with your actual Calorieninjas API key

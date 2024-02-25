@@ -34,18 +34,10 @@ canvas = Canvas(window, width=window.winfo_screenwidth(), height=window.winfo_sc
 canvas.pack()
 
 # Display the stretched background image
-canvas.create_image(0, 0, anchor="nw", image=bg_img)
+canvas.create_image(0, 0, anchor=NW, image=bg_img)
 
 # Display the label directly on the root window
-Label(window, text='                        Bhakalo - The Fruit Shop                        ', font=('Bodoni', 56, 'bold'), fg='#F60639',bg='#ffe068').place(relx=0.5, rely=0.05, anchor="center")
-
-# Center the window on the screen
-window.update_idletasks()
-window_width = window.winfo_screenwidth()
-window_height = window.winfo_screenheight()
-x_position = (window.winfo_screenwidth() - window_width) // 2
-y_position = (window.winfo_screenheight() - window_height) // 2
-window.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
+Label(window, text='                   Bhakalo - The Fruit Shop                ', font=('alice', 48, 'bold'), fg='#F60639').place(x=100, y=10)
 
 def signup(email_entry, password_entry, confirm_password_entry):
     username = email_entry.get()
