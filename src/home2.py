@@ -19,6 +19,99 @@ class Bhakalo:
         self.setup_ui()
         self.table_window = None
         self.table_label = None
+    def setup_ui(self):
+
+        #Create the background frame
+        self.background_frame = tk.Frame(self.root, bg = "#0A2472",width=self.screen_width,height=self.screen_height)
+        self.background_frame.pack()
+
+        #Create left frame for navigation and buttons
+        self.left_frame = tk.Frame(self.background_frame, bg = "#ff9147",width=self.screen_width // 7,height=self.screen_height)
+        self.left_frame.pack(side=tk.LEFT)
+
+        #Set up button Styling
+        style = ttk.Style()
+        style.configure("Rounded.TButton", borderwidth=0, relief="flat",background="#BCD2E8", padding = 10, font=("Calibri",12))
+        style.map("Rounded.TButton",foreground=[('pressed','black'),('active','white')])
+
+        #Create the fruits button
+        self.button_label = ttk.Button(self.left_frame,text="My Store", style="Rounded.TButton",command=self.fruit_tab)
+        self.button_label.pack()
+        self.button_label.place(x=75,y=350,anchor='nw')
+
+        #Create the Account button
+        self.button_label = ttk.Button(self.left_frame,text="My Account", style="Rounded.TButton",command=self.account_tab)
+        self.button_label.pack()
+        self.button_label.place(x=75,y=420,anchor='nw')
+
+        #Create the sale button
+        self.button_label = ttk.Button(self.left_frame,text="My cart", style="Rounded.TButton",command=self.cart_tab)
+        self.button_label.pack()
+        self.button_label.place(x=75,y=490,anchor='nw')
+
+        #Create the OurBlogs button
+        self.button_label = ttk.Button(self.left_frame,text="Our Blogs", style="Rounded.TButton",command=self.ourblogs_tab)
+        self.button_label.pack()
+        self.button_label.place(x=75,y=560,anchor='nw')
+       
+        #Load and Display an Image
+        script_directory = os.path.dirname(os.path.abspath(__file__))
+        img_path = os.path.join(script_directory,"../assets/user.jpg")
+        img = ImageTk.PhotoImage(Image.open(img_path))
+        original_image = Image.open(img_path)
+        resized_image = original_image.resize((150, 175))  
+        img = ImageTk.PhotoImage(resized_image)
+        self.label = tk.Label(self.left_frame, image=img,background="#00072D")
+        self.label.image_types = img
+        self.label.pack()
+        self.label.place(x=50, y=130, anchor="nw")
+
+        # Welcome user
+        welcome_label = tk.Label(self.left_frame, text="Welcome User", background="#00072D", fg="#BCD2E8", font=("Monotype", 24, "bold"))
+        welcome_label.pack()
+        welcome_label.place(x=20, y=70, anchor="nw")
+
+        #Setup the right frame for dynamic content
+        rgba_color = (222,55,48,255)
+        tk_color = "#{:02x}{:02x}{:02x}".format(*rgba_color[:3])
+        self.right_frame = tk.Frame(self.background_frame,bg="#BCD2E8",width=(self.screen_width - self.screen_width // 6),height=self.screen_height)
+        self.right_frame.pack(side=tk.RIGHT)
+
+        #Create a "Back" button
+        self.back_button = ttk.Button(self.left_frame,text="Back",style="Rounded.TButton",command=self.reset_ui)
+        self.back_button.pack()
+        self.back_button.place(x=75,y=630,anchor="nw")
+
+        #Track whether Font Library is open and additional widgets
+        self.fruit_tab_opened = False
+        self.secondtab_opened = False
+        self.thirdtab_opened = False
+        self.fourthtab_opened = False
+        self.fifthtab_opened = False
+        self.account_tab_opened = False
+        self.cart_tab_opened = False
+        self.ourblogs_tab_opened = False
+        self.additional_widgets = []
+
+    # Load and Display an Image in the right frame
+        script_directory = os.path.dirname(os.path.abspath(__file__))
+        image_path = os.path.join(script_directory, "../assets/bg1.jpg")
+
+        # Use PIL to open the image and convert it to Tkinter PhotoImage
+        original_image = Image.open(image_path)
+        resized_image = original_image.resize((self.screen_width - self.screen_width // 6, self.screen_height), Image.ANTIALIAS)
+        bg_img = ImageTk.PhotoImage(resized_image)
+
+        # Create the label with the background image
+        self.bg_label = tk.Label(self.right_frame, image=bg_img)
+        self.bg_label.image = bg_img  # Keep a reference to the image to prevent it from being garbage collected
+        self.bg_label.place(x=0, y=0, anchor="nw")
+
+        # Create a label for welcome text on top of the image
+        tk_color = "#FFA101"
+        welcome_label = tk.Label(self.right_frame, text=self.original_label_text, font=("Calibri", 50, "bold"), fg=tk_color)
+        welcome_label.place(relx=0.5, rely=0.5, anchor="center")
+    
     def fruit_tab(self):
         #Show Font Library tab
         if self.fruit_tab_opened:
@@ -1042,105 +1135,7 @@ class Bhakalo:
             self.l30 = tk.Label(self.right_frame, image=img, background="#fffce9")
             self.l30.image_types = img
             self.l30.pack()
-            self.l30.place(x=925, y=600, anchor="nw")   
-        
-    def setup_ui(self):
-
-        #Create the background frame
-        self.background_frame = tk.Frame(self.root, bg = "#0A2472",width=self.screen_width,height=self.screen_height)
-        self.background_frame.pack()
-
-        #Create left frame for navigation and buttons
-        self.left_frame = tk.Frame(self.background_frame, bg = "#ff9147",width=self.screen_width // 7,height=self.screen_height)
-        self.left_frame.pack(side=tk.LEFT)
-
-        #Set up button Styling
-        style = ttk.Style()
-        style.configure("Rounded.TButton", borderwidth=0, relief="flat",background="#BCD2E8", padding = 10, font=("Calibri",12))
-        style.map("Rounded.TButton",foreground=[('pressed','black'),('active','white')])
-
-        #Create the fruits button
-        self.button_label = ttk.Button(self.left_frame,text="My Store", style="Rounded.TButton",command=self.fruit_tab)
-        self.button_label.pack()
-        self.button_label.place(x=75,y=350,anchor='nw')
-
-        #Create the Account button
-        self.button_label = ttk.Button(self.left_frame,text="My Account", style="Rounded.TButton",command=self.account_tab)
-        self.button_label.pack()
-        self.button_label.place(x=75,y=420,anchor='nw')
-
-        #Create the sale button
-        self.button_label = ttk.Button(self.left_frame,text="My cart", style="Rounded.TButton",command=self.cart_tab)
-        self.button_label.pack()
-        self.button_label.place(x=75,y=490,anchor='nw')
-
-        #Create the OurBlogs button
-        self.button_label = ttk.Button(self.left_frame,text="Our Blogs", style="Rounded.TButton",command=self.ourblogs_tab)
-        self.button_label.pack()
-        self.button_label.place(x=75,y=560,anchor='nw')
-       
-        #Load and Display an Image
-        script_directory = os.path.dirname(os.path.abspath(__file__))
-        img_path = os.path.join(script_directory,"../assets/user.jpg")
-        img = ImageTk.PhotoImage(Image.open(img_path))
-        original_image = Image.open(img_path)
-        resized_image = original_image.resize((150, 175))  
-        img = ImageTk.PhotoImage(resized_image)
-        self.label = tk.Label(self.left_frame, image=img,background="#00072D")
-        self.label.image_types = img
-        self.label.pack()
-        self.label.place(x=50, y=130, anchor="nw")
-
-        # Welcome user
-        welcome_label = tk.Label(self.left_frame, text="Welcome User", background="#00072D", fg="#BCD2E8", font=("Monotype", 24, "bold"))
-        welcome_label.pack()
-        welcome_label.place(x=20, y=70, anchor="nw")
-
-        #Setup the right frame for dynamic content
-        rgba_color = (222,55,48,255)
-        tk_color = "#{:02x}{:02x}{:02x}".format(*rgba_color[:3])
-        self.right_frame = tk.Frame(self.background_frame,bg="#BCD2E8",width=(self.screen_width - self.screen_width // 6),height=self.screen_height)
-        self.right_frame.pack(side=tk.RIGHT)
-
-        #Create a "Back" button
-        self.back_button = ttk.Button(self.left_frame,text="Back",style="Rounded.TButton",command=self.reset_ui)
-        self.back_button.pack()
-        self.back_button.place(x=75,y=630,anchor="nw")
-
-        #Track whether Font Library is open and additional widgets
-        self.fruit_tab_opened = False
-        self.secondtab_opened = False
-        self.thirdtab_opened = False
-        self.fourthtab_opened = False
-        self.fifthtab_opened = False
-        self.account_tab_opened = False
-        self.cart_tab_opened = False
-        self.ourblogs_tab_opened = False
-        self.additional_widgets = []
-
-    # Load and Display an Image in the right frame
-        script_directory = os.path.dirname(os.path.abspath(__file__))
-        image_path = os.path.join(script_directory, "../assets/bg1.jpg")
-
-        # Use PIL to open the image and convert it to Tkinter PhotoImage
-        original_image = Image.open(image_path)
-        resized_image = original_image.resize((self.screen_width - self.screen_width // 6, self.screen_height), Image.ANTIALIAS)
-        bg_img = ImageTk.PhotoImage(resized_image)
-
-        # Create the label with the background image
-        self.bg_label = tk.Label(self.right_frame, image=bg_img)
-        self.bg_label.image = bg_img  # Keep a reference to the image to prevent it from being garbage collected
-        self.bg_label.place(x=0, y=0, anchor="nw")
-
-        # Create a label for welcome text on top of the image
-        tk_color = "#FFA101"
-        welcome_label = tk.Label(self.right_frame, text=self.original_label_text, font=("Calibri", 50, "bold"), fg=tk_color)
-        welcome_label.place(relx=0.5, rely=0.5, anchor="center")
-    
-
-
-    
-    
+            self.l30.place(x=925, y=600, anchor="nw")
 
     def account_tab(self):
         #Show Font Library tab
@@ -1790,117 +1785,20 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
       
-    def reset_ui(self,event=None):
+    def reset_ui(self):
         #Reset UI when going back
         self.fruit_tab_opened = False
         self.secondtab_opened = False
         self.thirdtab_opened = False
         self.fourthtab_opened = False
         self.fifthtab_opened = False
-        print("in reset ui")
 
-        self.label1.config(image='')
-        self.label1.image = None
-        
-        self.label2.config(image='')
-        self.label2.image = None
-        
-        self.label3.config(image='')
-        self.label3.image = None
-        
-        self.label4.config(image='')
-        self.label4.image = None
-
-        self.label5.config(image='')
-        self.label5.image = None
-
-        self.label6.config(image='')
-        self.label6.image = None
-
-        self.label7.config(image='')
-        self.label7.image = None
-
-        self.label8.config(image='')
-        self.label8.image = None
-
-        self.label8.config(image='')
-        self.label8.image = None
-
-        self.label9.config(image='')
-        self.label9.image = None
-
-        self.label10.config(image='')
-        self.label10.image = None
-
-        self.label11.config(image='')
-        self.label11.image = None
-
-        self.label12.config(image='')
-        self.label12.image = None
-
-
-        self.label13.config(image='')
-        self.label13.image = None
-
-        self.label14.config(image='')
-        self.label14.image = None
-
-        self.label15.config(image='')
-        self.label15.image = None
-
-        self.label16.config(image='')
-        self.label16.image = None
-
-        self.label17.config(image='')
-        self.label17.image = None
-
-        self.label18.config(image='')
-        self.label18.image = None
-
-        self.label19.config(image='')
-        self.label19.image = None
-
-        self.label20.config(image='')
-        self.label20.image = None
-
-        self.label21.config(image='')
-        self.label21.image = None
-
-        self.label22.config(image='')
-        self.label22.image = None
-
-        self.label23.config(image='')
-        self.label23.image = None
-
-        self.label24.config(image='')
-        self.label24.image = None
-
-        self.label25.config(image='')
-        self.label25.image = None
-
-        self.label26.config(image='')
-        self.label26.image = None
-
-        self.label27.config(image='')
-        self.label27.image = None
-
-        self.label28.config(image='')
-        self.label28.image = None
-
-        self.label29.config(image='')
-        self.label29.image = None
-
-        self.label30.config(image='')
-        self.label30.image = None
-
-      
-        
         for widget in self.additional_widgets:
             widget.destroy()
         self.additional_widgets = []
         self.heading_label.destroy()
         self.input_label.destroy()
-        '''self.button_label1.destroy()
+        self.button_label1.destroy()
         self.button_label2.destroy()
         self.button_label3.destroy()
         self.button_label4.destroy()
@@ -1910,7 +1808,7 @@ class Bhakalo:
         self.button_label8.destroy()
         self.button_label9.destroy()
         self.button_label10.destroy()
-        self.button_label11.destroy()    
+        self.button_label1.destroy()    
         self.button_label12.destroy()
         self.button_label13.destroy()
         self.button_label14.destroy()
@@ -1929,10 +1827,10 @@ class Bhakalo:
         self.button_label27.destroy()
         self.button_label28.destroy()
         self.button_label29.destroy()
-        self.button_label30.destroy()'''
+        self.button_label30.destroy()
 
-        self.label1.config(image='')
-        self.label1.image = None
+        self.right_label.config(text = self.original_label_text)
+
 
     def run(self):
         #Run the Tkinter main loop
