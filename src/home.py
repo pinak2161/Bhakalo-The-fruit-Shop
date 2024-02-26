@@ -159,6 +159,7 @@ class Bhakalo:
             self.label1.image_types = img
             self.label1.pack()
             self.label1.place(x=100, y=150, anchor="nw")
+            self.label1.bind("<Button-1>", self.appleClicked)
 
             self.button_label1 = ttk.Button(self.right_frame,text ="Apple", style="Rounded.TButton",command=self.appleClicked)
             self.button_label1.pack()
@@ -174,6 +175,7 @@ class Bhakalo:
             self.l1.image_types = img
             self.l1.pack()
             self.l1.place(x=275, y=340, anchor="nw")
+            self.l1.bind("<Button-1>", self.cart_tab)
 
             #Banana
             script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -186,6 +188,7 @@ class Bhakalo:
             self.label2.image_types = img
             self.label2.pack()
             self.label2.place(x=425, y=150, anchor="nw")
+            self.label2.bind("<Button-1>", self.bananaClicked)
 
             self.button_label2 = ttk.Button(self.right_frame,text ="Banana", style="Rounded.TButton",command=self.bananaClicked)
             self.button_label2.pack()
@@ -199,7 +202,8 @@ class Bhakalo:
             img = ImageTk.PhotoImage(image2)
             self.l2 = tk.Label(self.right_frame, image=img, background="#fffce9")
             self.l2.image_types = img
-        
+            self.l2.pack()
+            self.l2.place(x=600, y=340, anchor="nw")
             
             #cherry
             script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -212,6 +216,7 @@ class Bhakalo:
             self.label3.image_types = img
             self.label3.pack()
             self.label3.place(x=750, y=150, anchor="nw")
+            self.label3.bind("<Button-1>", self.cherryClicked)
 
             self.button_label3 = ttk.Button(self.right_frame,text="Cherry", style="Rounded.TButton",command=self.cherryClicked)
             self.button_label3.pack()
@@ -239,6 +244,7 @@ class Bhakalo:
             self.label4.image_types = img
             self.label4.pack()
             self.label4.place(x=100, y=400, anchor="nw")
+            self.label4.bind("<Button-1>", self.dragonfruitClicked)
 
             self.button_label4 = ttk.Button(self.right_frame,text="Dragon Fruit", style="Rounded.TButton",command=self.dragonfruitClicked)
             self.button_label4.pack()
@@ -254,6 +260,7 @@ class Bhakalo:
             self.l4.image_types = img
             self.l4.pack()
             self.l4.place(x=275, y=600, anchor="nw")
+            
 
             #Gooseberry
             script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -266,6 +273,7 @@ class Bhakalo:
             self.label5.image_types = img
             self.label5.pack()
             self.label5.place(x=425, y=400, anchor="nw")
+            self.label5.bind("<Button-1>", self.gooseberryClicked)
 
             self.button_label5 = ttk.Button(self.right_frame,text='Gooseberry', style="Rounded.TButton",command=self.gooseberryClicked)
             self.button_label5.pack()
@@ -294,6 +302,7 @@ class Bhakalo:
             self.label6.image_types = img
             self.label6.pack()
             self.label6.place(x=750, y=400, anchor="nw")
+            self.label6.bind("<Button-1>", self.jackfruitClicked)
 
             self.button_label6 = ttk.Button(self.right_frame,text="Jack Fruit", style="Rounded.TButton",command=self.jackfruitClicked)
             self.button_label6.pack()
@@ -353,7 +362,8 @@ class Bhakalo:
             self.label7.image_types = img
             self.label7.pack()
             self.label7.place(x=100, y=150, anchor="nw")
-
+            self.label7.bind("<Button-1>", self.lemonClicked)
+        
             self.button_label7 = ttk.Button(self.right_frame,text ="Lemon", style="Rounded.TButton",command=self.lemonClicked)
             self.button_label7.pack()
             self.button_label7.place(x=100,y=340,anchor='nw')
@@ -383,6 +393,7 @@ class Bhakalo:
             self.label8.image_types = img
             self.label8.pack()
             self.label8.place(x=425, y=150, anchor="nw")
+            self.label8.bind("<Button-1>", self.mangoClicked)
 
             self.button_label8 = ttk.Button(self.right_frame,text ="Mango", style="Rounded.TButton",command=self.mangoClicked)
             self.button_label8.pack()
@@ -411,6 +422,7 @@ class Bhakalo:
             self.label9.image_types = img
             self.label9.pack()
             self.label9.place(x=750, y=150, anchor="nw")
+            self.label9.bind("<Button-1>", self.orangeClicked)
 
             self.button_label9 = ttk.Button(self.right_frame,text="Orange", style="Rounded.TButton",command=self.orangeClicked)
             self.button_label9.pack()
@@ -438,6 +450,7 @@ class Bhakalo:
             self.label10.image_types = img
             self.label10.pack()
             self.label10.place(x=100, y=400, anchor="nw")
+            self.label10.bind("<Button-1>", self.pineappleClicked)
 
             self.button_label10 = ttk.Button(self.right_frame,text="Pineapple", style="Rounded.TButton",command=self.pineappleClicked)
             self.button_label10.pack()
@@ -465,6 +478,7 @@ class Bhakalo:
             self.label11.image_types = img
             self.label11.pack()
             self.label11.place(x=425, y=400, anchor="nw")
+            self.label11.bind("<Button-1>", self.strawberryClicked)
 
             self.button_label11 = ttk.Button(self.right_frame,text='Strawberry', style="Rounded.TButton",command=self.strawberryClicked)
             self.button_label11.pack()
@@ -493,6 +507,7 @@ class Bhakalo:
             self.label12.image_types = img
             self.label12.pack()
             self.label12.place(x=750, y=400, anchor="nw")
+            self.label12.bind("<Button-1>", self.watermelonClicked)
 
             self.button_label12 = ttk.Button(self.right_frame,text="Watermelon", style="Rounded.TButton",command=self.watermelonClicked)
             self.button_label12.pack()
@@ -553,7 +568,7 @@ class Bhakalo:
             self.label13.image_types = img
             self.label13.pack()
             self.label13.place(x=100, y=150, anchor="nw")
-
+            self.label13.bind("<Button-1>", self.quinceClicked)
 
             self.button_label13 = ttk.Button(self.right_frame,text ="Quince", style="Rounded.TButton",command=self.quinceClicked)
             self.button_label13.pack()
@@ -581,6 +596,7 @@ class Bhakalo:
             self.label14.image_types = img
             self.label14.pack()
             self.label14.place(x=425, y=150, anchor="nw")
+            self.label14.bind("<Button-1>", self.tomatoClicked)
 
             self.button_label14 = ttk.Button(self.right_frame,text ="Tomato", style="Rounded.TButton",command=self.tomatoClicked)
             self.button_label14.pack()
@@ -608,6 +624,7 @@ class Bhakalo:
             self.label15.image_types = img
             self.label15.pack()
             self.label15.place(x=750, y=150, anchor="nw")
+            self.label15.bind("<Button-1>", self.zucchiniClicked)
 
             self.button_label15 = ttk.Button(self.right_frame,text="Zucchini", style="Rounded.TButton",command=self.zucchiniClicked)
             self.button_label15.pack()
@@ -636,6 +653,7 @@ class Bhakalo:
             self.label16.image_types = img
             self.label16.pack()
             self.label16.place(x=100, y=400, anchor="nw")
+            self.label16.bind("<Button-1>", self.custardappleClicked)
 
             self.button_label16 = ttk.Button(self.right_frame,text="Custardapple", style="Rounded.TButton",command=self.custardappleClicked)
             self.button_label16.pack()
@@ -663,6 +681,7 @@ class Bhakalo:
             self.label17.image_types = img
             self.label17.pack()
             self.label17.place(x=425, y=400, anchor="nw")
+            self.label17.bind("<Button-1>", self.kiwiClicked)
 
             self.button_label17 = ttk.Button(self.right_frame,text='Kiwi', style="Rounded.TButton",command=self.kiwiClicked)
             self.button_label17.pack()
@@ -690,6 +709,8 @@ class Bhakalo:
             self.label18.image_types = img
             self.label18.pack()
             self.label18.place(x=750, y=400, anchor="nw")
+            self.label18.bind("<Button-1>", self.pomegranateClicked)
+
 
             self.button_label18 = ttk.Button(self.right_frame,text="Pomegranate", style="Rounded.TButton",command=self.pomegranateClicked)
             self.button_label18.pack()
@@ -750,6 +771,7 @@ class Bhakalo:
             self.label19.image_types = img
             self.label19.pack()
             self.label19.place(x=100, y=150, anchor="nw")
+            self.label19.bind("<Button-1>", self.blackberryClicked)
 
             self.button_label19 = ttk.Button(self.right_frame,text ="Blackberry", style="Rounded.TButton",command=self.blackberryClicked)
             self.button_label19.pack()
@@ -779,6 +801,7 @@ class Bhakalo:
             self.label20.image_types = img
             self.label20.pack()
             self.label20.place(x=425, y=150, anchor="nw")
+            self.label20.bind("<Button-1>", self.grapesClicked)
 
             self.button_label20 = ttk.Button(self.right_frame,text ="Grapes", style="Rounded.TButton",command=self.grapesClicked)
             self.button_label20.pack()
@@ -807,6 +830,7 @@ class Bhakalo:
             self.label21.image_types = img
             self.label21.pack()
             self.label21.place(x=750, y=150, anchor="nw")
+            self.label21.bind("<Button-1>", self.pearClicked)
 
             self.button_label21 = ttk.Button(self.right_frame,text="Pear", style="Rounded.TButton",command=self.pearClicked)
             self.button_label21.pack()
@@ -835,6 +859,7 @@ class Bhakalo:
             self.label22.image_types = img
             self.label22.pack()
             self.label22.place(x=100, y=400, anchor="nw")
+            self.label22.bind("<Button-1>", self.avacadoClicked)
 
             self.button_label22 = ttk.Button(self.right_frame,text="Avacado", style="Rounded.TButton",command=self.avacadoClicked)
             self.button_label22.pack()
@@ -863,6 +888,7 @@ class Bhakalo:
             self.label23.image_types = img
             self.label23.pack()
             self.label23.place(x=425, y=400, anchor="nw")
+            self.label23.bind("<Button-1>", self.lichiClicked)
 
             self.button_label23 = ttk.Button(self.right_frame,text='Lichi', style="Rounded.TButton",command=self.lichiClicked)
             self.button_label23.pack()
@@ -892,6 +918,7 @@ class Bhakalo:
             self.label24.image_types = img
             self.label24.pack()
             self.label24.place(x=750, y=400, anchor="nw")
+            self.label24.bind("<Button-1>", self.blueberryClicked)
 
             self.button_label24 = ttk.Button(self.right_frame,text="Blueberry", style="Rounded.TButton",command=self.blueberryClicked)
             self.button_label24.pack()
@@ -951,6 +978,7 @@ class Bhakalo:
             self.label25.image_types = img
             self.label25.pack()
             self.label25.place(x=100, y=150, anchor="nw")
+            self.label25.bind("<Button-1>", self.muskmelonClicked)
 
             self.button_label25 = ttk.Button(self.right_frame,text ="Muskmelon", style="Rounded.TButton",command=self.muskmelonClicked)
             self.button_label25.pack()
@@ -979,6 +1007,7 @@ class Bhakalo:
             self.label26.image_types = img
             self.label26.pack()
             self.label26.place(x=425, y=150, anchor="nw")
+            self.label26.bind("<Button-1>", self.papayaClicked)
 
             self.button_label26 = ttk.Button(self.right_frame,text ="Papaya", style="Rounded.TButton",command=self.papayaClicked)
             self.button_label26.pack()
@@ -1007,6 +1036,7 @@ class Bhakalo:
             self.label27.image_types = img
             self.label27.pack()
             self.label27.place(x=750, y=150, anchor="nw")
+            self.label27.bind("<Button-1>", self.peachClicked)
 
             self.button_label27 = ttk.Button(self.right_frame,text="Peach", style="Rounded.TButton",command=self.peachClicked)
             self.button_label27.pack()
@@ -1035,6 +1065,7 @@ class Bhakalo:
             self.label28.image_types = img
             self.label28.pack()
             self.label28.place(x=100, y=400, anchor="nw")
+            self.label28.bind("<Button-1>", self.guavaClicked)
 
             self.button_label28 = ttk.Button(self.right_frame,text="Gauva", style="Rounded.TButton",command=self.guavaClicked)
             self.button_label28.pack()
@@ -1063,6 +1094,7 @@ class Bhakalo:
             self.label29.image_types = img
             self.label29.pack()
             self.label29.place(x=425, y=400, anchor="nw")
+            self.label29.bind("<Button-1>", self.grapefruitClicked)
 
             self.button_label29 = ttk.Button(self.right_frame,text='Grapefruit', style="Rounded.TButton",command=self.grapefruitClicked)
             self.button_label29.pack()
@@ -1091,6 +1123,7 @@ class Bhakalo:
             self.label30.image_types = img
             self.label30.pack()
             self.label30.place(x=750, y=400, anchor="nw")
+            self.label30.bind("<Button-1>", self.raspberryClicked)
 
             self.button_label30 = ttk.Button(self.right_frame,text="Raspberry", style="Rounded.TButton",command=self.raspberryClicked)
             self.button_label30.pack()
@@ -1137,17 +1170,25 @@ class Bhakalo:
         self.bt5.pack()
         self.bt5.place(x=150,y=300,anchor='nw')
 
-    def cart_tab(self):
-        #Show Font Library tab
-        if self.cart_tab_opened:
-            messagebox.showinfo("Already opened","My cart page is already opened!")
+    def cart_tab(self,event=None):
+        # Your existing code for cart_tab
+        '''if self.cart_tab_opened:
+            messagebox.showinfo("Already opened", "My cart page is already opened!")
         else:
-            #Destroy existing widgets
             for widget in self.additional_widgets:
                 widget.destroy()
             self.additional_widgets = []
-        self.cart_tab_opened = True
+        self.cart_tab_opened = True'''
+        self.table_window = tk.Toplevel(self.root)
+        self.table_window.title("My cart")
 
+        # Create and pack a Label for the nutritional information
+        self.table_label = tk.Label(self.table_window, text="Added to my cart", font=("Calibri", 16, "bold"))
+        self.table_label.pack()
+
+        # Create and pack a Label for the nutritional information
+        self.table_label = tk.Label(self.table_window, text="Added to my cart", font=("Calibri", 16, "bold"))
+        self.table_label.pack()
     def ourblogs_tab(self):
           
         # Replace "https://www.example.com/ourblogs" with your actual link
@@ -1201,7 +1242,7 @@ class Bhakalo:
             nutrient_label = tk.Label(self.table_window, text=f"{nutrient['title']}: {nutrient['amount']} {nutrient['unit']}")
             nutrient_label.pack()
 
-    def appleClicked(self):
+    def appleClicked(self,event=None):
         food_name = 'Apple'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1220,7 +1261,7 @@ class Bhakalo:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
     
-    def bananaClicked(self):
+    def bananaClicked(self,event=None):
         food_name = 'Banana'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1240,7 +1281,7 @@ class Bhakalo:
 
     
         
-    def cherryClicked(self):
+    def cherryClicked(self,event=None):
         food_name = 'cherry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1260,7 +1301,7 @@ class Bhakalo:
 
     
 
-    def dragonfruitClicked(self):
+    def dragonfruitClicked(self,event=None):
         food_name = 'dragonfruit'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1278,7 +1319,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def gooseberryClicked(self):
+    def gooseberryClicked(self,event=None):
         food_name = 'gooseberry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1296,7 +1337,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def jackfruitClicked(self):
+    def jackfruitClicked(self,event=None):
         food_name = 'jackfruit'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1314,7 +1355,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def lemonClicked(self):
+    def lemonClicked(self,event=None):
         food_name = 'lemon'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1332,7 +1373,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def mangoClicked(self):
+    def mangoClicked(self,event=None):
         food_name = 'mango'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1350,7 +1391,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def orangeClicked(self):
+    def orangeClicked(self,event=None):
         food_name = 'orange'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1368,7 +1409,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def pineappleClicked(self):
+    def pineappleClicked(self,event=None):
         food_name = 'pineapple'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1386,7 +1427,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def strawberryClicked(self):
+    def strawberryClicked(self,event=None):
         food_name = 'strawberry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1404,7 +1445,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def watermelonClicked(self):
+    def watermelonClicked(self,event=None):
         food_name = 'watermelon'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1422,7 +1463,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def grapesClicked(self):
+    def grapesClicked(self,event=None):
         food_name = 'grapes'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1440,7 +1481,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def blackberryClicked(self):
+    def blackberryClicked(self,event=None):
         food_name = 'blackberry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1458,7 +1499,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def custardappleClicked(self):
+    def custardappleClicked(self,event=None):
         food_name = 'custardapple'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1476,7 +1517,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def muskmelonClicked(self):
+    def muskmelonClicked(self,event=None):
         food_name = 'muskmelon'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1494,7 +1535,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def avacadoClicked(self):
+    def avacadoClicked(self,event=None):
         food_name = 'avacado'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1512,7 +1553,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def pearClicked(self):
+    def pearClicked(self,event=None):
         food_name = 'cherry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1530,7 +1571,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def peachClicked(self):
+    def peachClicked(self,event=None):
         food_name = 'peach'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1548,7 +1589,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def lichiClicked(self):
+    def lichiClicked(self,event=None):
         food_name = 'lichi'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1566,7 +1607,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def blueberryClicked(self):
+    def blueberryClicked(self,event=None):
         food_name = 'blueberry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1584,7 +1625,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def kiwiClicked(self):
+    def kiwiClicked(self,event=None):
         food_name = 'kiwi'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1603,7 +1644,7 @@ class Bhakalo:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
  
 
-    def papayaClicked(self):
+    def papayaClicked(self,event=None):
         food_name = 'papaya'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1621,7 +1662,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def pomegranateClicked(self):
+    def pomegranateClicked(self,event=None):
         food_name = 'pomegranate'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1639,7 +1680,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def quinceClicked(self):
+    def quinceClicked(self,event=None):
         food_name = 'quince'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1657,7 +1698,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def raspberryClicked(self):
+    def raspberryClicked(self,event=None):
         food_name = 'raspberry'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1675,7 +1716,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def tomatoClicked(self):
+    def tomatoClicked(self,event=None):
         food_name = 'tomato'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1693,7 +1734,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def guavaClicked(self):
+    def guavaClicked(self,event=None):
         food_name = 'guava'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1711,7 +1752,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def zucchiniClicked(self):
+    def zucchiniClicked(self,event=None):
         food_name = 'zucchini'
         nutrients = self.get_nutrition_info(food_name)
 
@@ -1729,7 +1770,7 @@ class Bhakalo:
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
 
-    def grapefruitClicked(self):
+    def grapefruitClicked(self,event=None):
         food_name = 'grapefruit'
         nutrients = self.get_nutrition_info(food_name)
 
