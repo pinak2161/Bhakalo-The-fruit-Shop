@@ -12,6 +12,15 @@ class Bhakalo:
         self.screen_height= 1000
         self.root.title("Bhakalo Fruit Shop")
 
+        self.cart = {}
+        self.fruitprices = {
+            "Apple": 220, "Banana": 40, "Cherry": 600, "Dragon Fruit": 300, "Gooseberry": 220, "Jack Fruit": 170,
+            "Lemon": 85, "Mango": 100, "Orange": 70, "Pineapple": 60, "Strawberry": 400, "Watermelon": 90, "Quince": 525,
+            "Tomato": 40, "Zucchini": 120, "Custardapple": 140, "Kiwi": 300, "Pomegranate": 110, "Blackberry": 1500,
+            "Grapes": 80, "Pear": 180, "Avocado": 250, "Lychee": 275, "Blueberry": 750, "Muskmelon": 52, "Papaya": 90,
+            "Peach": 630, "Guava": 115, "Grapefruit": 129, "Raspberry": 150
+        }
+        
         self.root.geometry(f"{self.screen_width}x{self.screen_height}")
         self.root.configure(bg = "#192f44")
         self.original_label_text = "Welcome to Bhakalo"
@@ -19,6 +28,11 @@ class Bhakalo:
         self.setup_ui()
         self.table_window = None
         self.table_label = None
+        self.label7 = None
+        self.fruit_tab()
+
+
+        
     def fruit_tab(self):
         #Show Font Library tab
         if self.fruit_tab_opened:
@@ -65,9 +79,10 @@ class Bhakalo:
             self.label1.place(x=100, y=150, anchor="nw")
             self.label1.bind("<Button-1>", self.appleClicked)
 
-            self.button_label1 = ttk.Button(self.right_frame,text ="Apple 220₹/kg", style="Rounded.TButton",command=self.appleClicked)
+            self.button_label1 = ttk.Button(self.right_frame, text="Apple - ₹220/kg", style="Rounded.TButton", command=lambda f="Apple", p=220: self.cart_tab(f, p))
             self.button_label1.pack()
-            self.button_label1.place(x=105,y=340,anchor='nw')
+            self.button_label1.place(x=105, y=340, anchor='nw')
+
 
             script_directory = os.path.dirname(os.path.abspath(__file__))
             img_path = os.path.join(script_directory,"../assets/Images/cart.jpg")
@@ -79,7 +94,7 @@ class Bhakalo:
             self.l1.image_types = img
             self.l1.pack()
             self.l1.place(x=275, y=340, anchor="nw")
-            self.l1.bind("<Button-1>", self.cart_tab)
+            self.l1.bind("<Button-1>", self.show_cart)
 
             #Banana
             script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -1043,7 +1058,8 @@ class Bhakalo:
             self.l30.image_types = img
             self.l30.pack()
             self.l30.place(x=925, y=600, anchor="nw")   
-        
+   
+          
     def setup_ui(self):
 
         #Create the background frame
@@ -1070,7 +1086,7 @@ class Bhakalo:
         self.button_label.place(x=75,y=420,anchor='nw')
 
         #Create the sale button
-        self.button_label = ttk.Button(self.left_frame,text="My cart", style="Rounded.TButton",command=self.cart_tab)
+        self.button_label = ttk.Button(self.left_frame,text="My cart", style="Rounded.TButton",command=self.show_cart)
         self.button_label.pack()
         self.button_label.place(x=75,y=490,anchor='nw')
 
@@ -1141,7 +1157,7 @@ class Bhakalo:
 
     
     
-
+    
     def account_tab(self):
         #Show Font Library tab
         if self.account_tab_opened:
@@ -1171,26 +1187,34 @@ class Bhakalo:
         self.bt5 = ttk.Button(self.right_frame,text ="See all", style="Rounded.TButton")
         self.bt5.pack()
         self.bt5.place(x=150,y=300,anchor='nw')
+        self.reset_ui()
+    def destroy_myAccount(self,event=None):
+        self.bt1.destroy()
+        self.bt2.destroy()
+        self.bt3.destroy()
+        self.bt4.destroy()
+            
+    def cart_tab(self,food_name,price):
+        quantity = self.cart.get(food_name, 0) + 1
+        self.cart[food_name] = quantity
+        messagebox.showinfo("Added to Cart", f"{food_name} added to the cart!")
 
-    def cart_tab(self,event=None):
-        # Your existing code for cart_tab
-        '''if self.cart_tab_opened:
-            messagebox.showinfo("Already opened", "My cart page is already opened!")
-        else:
-            for widget in self.additional_widgets:
-                widget.destroy()
-            self.additional_widgets = []
-        self.cart_tab_opened = True'''
-        self.table_window = tk.Toplevel(self.root)
-        self.table_window.title("My cart")
+    def show_cart(self):
+        if not self.cart:
+            messagebox.showinfo("Cart", "Cart is empty.")
+            return
 
-        # Create and pack a Label for the nutritional information
-        self.table_label = tk.Label(self.table_window, text="Added to my cart", font=("Calibri", 16, "bold"))
-        self.table_label.pack()
+        cart_content = ""
+        total_price = 0
 
-        # Create and pack a Label for the nutritional information
-        self.table_label = tk.Label(self.table_window, text="Added to my cart", font=("Calibri", 16, "bold"))
-        self.table_label.pack()
+        for food_name, quantity in self.cart.items():
+            price = self.fruitprices.get(food_name, 0)
+            total_price += price * quantity
+            cart_content += f"{food_name} - Quantity: {quantity} - Price: ₹{price * quantity:.2f}/kg\n"
+
+        cart_content += f"\nTotal Bill: ₹{total_price:.2f}"
+
+        messagebox.showinfo("Cart", cart_content)    
     def ourblogs_tab(self):
           
         # Replace "https://www.example.com/ourblogs" with your actual link
@@ -1789,16 +1813,46 @@ class Bhakalo:
 
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
-      
-    def reset_ui(self,event=None):
-        #Reset UI when going back
-        self.fruit_tab_opened = False
-        self.secondtab_opened = False
-        self.thirdtab_opened = False
-        self.fourthtab_opened = False
-        self.fifthtab_opened = False
-        print("in reset ui")
+    def reset_buttons(self):
+        self.button_label1.destroy()
+        self.button_label2.destroy()
+        self.button_label3.destroy()
+        self.button_label4.destroy()
+        self.button_label5.destroy()
+        self.button_label6.destroy()
+        self.button_label7.destroy()
+        self.button_label8.destroy()
+        self.button_label9.destroy()
+        self.button_label10.destroy()
+        self.button_label11.destroy()    
+        self.button_label12.destroy()
+        self.button_label13.destroy()
+        self.button_label14.destroy()
+        self.button_label15.destroy()
+        self.button_label16.destroy()
+        self.button_label17.destroy()
+        self.button_label18.destroy()
+        self.button_label19.destroy()
+        self.button_label20.destroy()
+        self.button_label21.destroy()
+        self.button_label22.destroy()
+        self.button_label23.destroy()
+        self.button_label24.destroy()
+        self.button_label25.destroy()
+        self.button_label26.destroy()
+        self.button_label27.destroy()
+        self.button_label28.destroy()
+        self.button_label29.destroy()
+        self.button_label30.destroy()
 
+    def reset_labels(self):
+        for widget in self.additional_widgets:
+            widget.destroy()
+        self.additional_widgets = []
+        self.heading_label.destroy()
+        self.input_label.destroy()
+
+    def reset_images(self):
         self.label1.config(image='')
         self.label1.image = None
         
@@ -1893,47 +1947,25 @@ class Bhakalo:
         self.label30.config(image='')
         self.label30.image = None
 
+    
+   
+        
+
       
         
-        for widget in self.additional_widgets:
-            widget.destroy()
-        self.additional_widgets = []
-        self.heading_label.destroy()
-        self.input_label.destroy()
-        '''self.button_label1.destroy()
-        self.button_label2.destroy()
-        self.button_label3.destroy()
-        self.button_label4.destroy()
-        self.button_label5.destroy()
-        self.button_label6.destroy()
-        self.button_label7.destroy()
-        self.button_label8.destroy()
-        self.button_label9.destroy()
-        self.button_label10.destroy()
-        self.button_label11.destroy()    
-        self.button_label12.destroy()
-        self.button_label13.destroy()
-        self.button_label14.destroy()
-        self.button_label15.destroy()
-        self.button_label16.destroy()
-        self.button_label17.destroy()
-        self.button_label18.destroy()
-        self.button_label19.destroy()
-        self.button_label20.destroy()
-        self.button_label21.destroy()
-        self.button_label22.destroy()
-        self.button_label23.destroy()
-        self.button_label24.destroy()
-        self.button_label25.destroy()
-        self.button_label26.destroy()
-        self.button_label27.destroy()
-        self.button_label28.destroy()
-        self.button_label29.destroy()
-        self.button_label30.destroy()'''
+   
 
-        self.label1.config(image='')
-        self.label1.image = None
-
+      
+    def reset_ui(self):
+        # Reset the entire UI by calling individual reset methods
+        self.fruit_tab_opened = False
+        self.secondtab_opened = False
+        self.thirdtab_opened = False
+        self.fourthtab_opened = False
+        self.fifthtab_opened = False
+        self.reset_images()
+        self.reset_buttons()
+        self.reset_labels()
     def run(self):
         #Run the Tkinter main loop
         self.root.mainloop()

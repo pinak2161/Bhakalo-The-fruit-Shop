@@ -1784,20 +1784,8 @@ class Bhakalo:
 
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
-      
-    def reset_ui(self):
-        #Reset UI when going back
-        self.fruit_tab_opened = False
-        self.secondtab_opened = False
-        self.thirdtab_opened = False
-        self.fourthtab_opened = False
-        self.fifthtab_opened = False
-
-        for widget in self.additional_widgets:
-            widget.destroy()
-        self.additional_widgets = []
-        self.heading_label.destroy()
-        self.input_label.destroy()
+    
+    def reset_buttons(self):
         self.button_label1.destroy()
         self.button_label2.destroy()
         self.button_label3.destroy()
@@ -1828,6 +1816,34 @@ class Bhakalo:
         self.button_label28.destroy()
         self.button_label29.destroy()
         self.button_label30.destroy()
+    def reset_labels(self):
+        # Reset labels to their initial state
+        # Add code to handle each label individually
+        pass
+
+    def reset_images(self):
+        # Reset images to their initial state
+        # Add code to handle each image individually
+        pass
+
+    def reset_ui(self):
+        # Reset the entire UI by calling individual reset methods
+        self.reset_buttons()
+        self.reset_labels()
+    def reset_ui(self):
+        #Reset UI when going back
+        self.fruit_tab_opened = False
+        self.secondtab_opened = False
+        self.thirdtab_opened = False
+        self.fourthtab_opened = False
+        self.fifthtab_opened = False
+
+        for widget in self.additional_widgets:
+            widget.destroy()
+        self.additional_widgets = []
+        self.heading_label.destroy()
+        self.input_label.destroy()
+        
 
         self.right_label.config(text = self.original_label_text)
 
