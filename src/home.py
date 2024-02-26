@@ -60,7 +60,7 @@ class Bhakalo:
 
             self.button_nextpage = ttk.Button(self.right_frame,text ="2>", style="Rounded.TButton",command=self.secondtab)
             self.button_nextpage.pack()
-            self.button_nextpage.place(x=950,y=625,anchor='nw')         
+            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
 
             self.fruit_tab_opened = True
 
@@ -109,7 +109,7 @@ class Bhakalo:
             self.label2.place(x=425, y=150, anchor="nw")
             self.label2.bind("<Button-1>", self.bananaClicked)
 
-            self.button_label2 = ttk.Button(self.right_frame,text ="Banana 40₹/dozen", style="Rounded.TButton",command=self.bananaClicked)
+            self.button_label2 = ttk.Button(self.right_frame,text ="Banana 40₹/dozen", style="Rounded.TButton",command=lambda f="Banana", p=40: self.cart_tab(f, p))
             self.button_label2.pack()
             self.button_label2.place(x=425,y=340,anchor='nw')
 
@@ -137,7 +137,7 @@ class Bhakalo:
             self.label3.place(x=750, y=150, anchor="nw")
             self.label3.bind("<Button-1>", self.cherryClicked)
 
-            self.button_label3 = ttk.Button(self.right_frame,text="Cherry 600₹/kg", style="Rounded.TButton",command=self.cherryClicked)
+            self.button_label3 = ttk.Button(self.right_frame,text="Cherry 600₹/kg", style="Rounded.TButton",command=lambda f="Cherry", p=600: self.cart_tab(f, p))
             self.button_label3.pack()
             self.button_label3.place(x=750,y=340,anchor='nw')
 
@@ -165,7 +165,7 @@ class Bhakalo:
             self.label4.place(x=100, y=400, anchor="nw")
             self.label4.bind("<Button-1>", self.dragonfruitClicked)
 
-            self.button_label4 = ttk.Button(self.right_frame,text="Dragon Fruit 300₹/kg", style="Rounded.TButton",command=self.dragonfruitClicked)
+            self.button_label4 = ttk.Button(self.right_frame,text="Dragon Fruit 300₹/kg", style="Rounded.TButton",command=lambda f="Dragon Fruit", p=300: self.cart_tab(f, p))
             self.button_label4.pack()
             self.button_label4.place(x=100,y=600,anchor='nw')
 
@@ -194,7 +194,7 @@ class Bhakalo:
             self.label5.place(x=425, y=400, anchor="nw")
             self.label5.bind("<Button-1>", self.gooseberryClicked)
 
-            self.button_label5 = ttk.Button(self.right_frame,text='Gooseberry 220₹/kg', style="Rounded.TButton",command=self.gooseberryClicked)
+            self.button_label5 = ttk.Button(self.right_frame,text='Gooseberry 220₹/kg', style="Rounded.TButton",command=lambda f="Gooseberry", p=220: self.cart_tab(f, p))
             self.button_label5.pack()
             self.button_label5.place(x=425,y=600,anchor='nw')
 
@@ -223,7 +223,7 @@ class Bhakalo:
             self.label6.place(x=750, y=400, anchor="nw")
             self.label6.bind("<Button-1>", self.jackfruitClicked)
 
-            self.button_label6 = ttk.Button(self.right_frame,text="Jack Fruit 170₹/kg", style="Rounded.TButton",command=self.jackfruitClicked)
+            self.button_label6 = ttk.Button(self.right_frame,text="Jackfruit 170₹/kg", style="Rounded.TButton",command=lambda f="Jackfruit", p=170: self.cart_tab(f, p))
             self.button_label6.pack()
             self.button_label6.place(x=750,y=600,anchor='nw')
 
@@ -237,9 +237,42 @@ class Bhakalo:
             self.l6.image_types = img
             self.l6.pack()
             self.l6.place(x=925, y=600, anchor="nw")
+            
+    def reset_first_tab(self):
+            self.firsttab_opened = False
+            if self.label1 is not None:
+                self.label1.config(image='')
+                self.label1.image = None
+            if self.label2 is not None:
+                self.label2.config(image='')
+                self.label2.image = None
+            if self.label3 is not None:
+                self.label3.config(image='')
+                self.label3.image = None
+            if self.label4 is not None:
+                self.label4.config(image='')
+                self.label4.image = None
+            if self.label5 is not None:
+                self.label5.config(image='')
+                self.label5.image = None    
+            if self.label6 is not None:
+                self.label6.config(image='')
+                self.label6.image = None
+#cart image clear
+            if self.l1 is not None:
+                self.l1.config(image='')
+                self.l1.image = None
+
+            self.button_label1.destroy()
+            self.button_label2.destroy()
+            self.button_label3.destroy()
+            self.button_label4.destroy()
+            self.button_label5.destroy()
+            self.button_label6.destroy()    
 
     def secondtab(self):
         #Show Font Library tab
+        self.reset_first_tab()
         if self.secondtab_opened:
             messagebox.showinfo("Already opened","Second tab is already opened!")
         else:
@@ -265,7 +298,7 @@ class Bhakalo:
 
             self.button_nextpage = ttk.Button(self.right_frame,text ="3>", style="Rounded.TButton",command=self.thirdtab)
             self.button_nextpage.pack()
-            self.button_nextpage.place(x=950,y=625,anchor='nw')         
+            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
 
             self.secondtab_opened = True
 
@@ -283,7 +316,7 @@ class Bhakalo:
             self.label7.place(x=100, y=150, anchor="nw")
             self.label7.bind("<Button-1>", self.lemonClicked)
         
-            self.button_label7 = ttk.Button(self.right_frame,text ="Lemon 85₹/kg", style="Rounded.TButton",command=self.lemonClicked)
+            self.button_label7 = ttk.Button(self.right_frame,text ="Lemon 85₹/kg", style="Rounded.TButton",command=lambda f="Lemon", p=85: self.cart_tab(f, p))
             self.button_label7.pack()
             self.button_label7.place(x=100,y=340,anchor='nw')
 
@@ -314,7 +347,7 @@ class Bhakalo:
             self.label8.place(x=425, y=150, anchor="nw")
             self.label8.bind("<Button-1>", self.mangoClicked)
 
-            self.button_label8 = ttk.Button(self.right_frame,text ="Mango 100₹/kg", style="Rounded.TButton",command=self.mangoClicked)
+            self.button_label8 = ttk.Button(self.right_frame,text ="Mango 100₹/kg", style="Rounded.TButton",command=lambda f="Mango", p=100: self.cart_tab(f, p))
             self.button_label8.pack()
             self.button_label8.place(x=425,y=340,anchor='nw')
 
@@ -343,7 +376,7 @@ class Bhakalo:
             self.label9.place(x=750, y=150, anchor="nw")
             self.label9.bind("<Button-1>", self.orangeClicked)
 
-            self.button_label9 = ttk.Button(self.right_frame,text="Orange 70₹/kg", style="Rounded.TButton",command=self.orangeClicked)
+            self.button_label9 = ttk.Button(self.right_frame,text="Orange 70₹/kg", style="Rounded.TButton",command=lambda f="Orange", p=70: self.cart_tab(f, p))
             self.button_label9.pack()
             self.button_label9.place(x=750,y=340,anchor='nw')
 
@@ -371,7 +404,7 @@ class Bhakalo:
             self.label10.place(x=100, y=400, anchor="nw")
             self.label10.bind("<Button-1>", self.pineappleClicked)
 
-            self.button_label10 = ttk.Button(self.right_frame,text="Pineapple 60₹/kg", style="Rounded.TButton",command=self.pineappleClicked)
+            self.button_label10 = ttk.Button(self.right_frame,text="Pineapple 60₹/kg", style="Rounded.TButton",command=lambda f="Pineapple", p=60: self.cart_tab(f, p))
             self.button_label10.pack()
             self.button_label10.place(x=100,y=600,anchor='nw')
 
@@ -399,7 +432,7 @@ class Bhakalo:
             self.label11.place(x=425, y=400, anchor="nw")
             self.label11.bind("<Button-1>", self.strawberryClicked)
 
-            self.button_label11 = ttk.Button(self.right_frame,text='Strawberry 400₹/kg', style="Rounded.TButton",command=self.strawberryClicked)
+            self.button_label11 = ttk.Button(self.right_frame,text='Strawberry 400₹/kg', style="Rounded.TButton",command=lambda f="Strawberry", p=400: self.cart_tab(f, p))
             self.button_label11.pack()
             self.button_label11.place(x=425,y=600,anchor='nw')
 
@@ -428,7 +461,7 @@ class Bhakalo:
             self.label12.place(x=750, y=400, anchor="nw")
             self.label12.bind("<Button-1>", self.watermelonClicked)
 
-            self.button_label12 = ttk.Button(self.right_frame,text="Watermelon 90₹/kg", style="Rounded.TButton",command=self.watermelonClicked)
+            self.button_label12 = ttk.Button(self.right_frame,text="Watermelon 90₹/kg", style="Rounded.TButton",command=lambda f="Watermelon", p=90: self.cart_tab(f, p))
             self.button_label12.pack()
             self.button_label12.place(x=750,y=600,anchor='nw')
 
@@ -442,9 +475,37 @@ class Bhakalo:
             self.l12.image_types = img
             self.l12.pack()
             self.l12.place(x=925, y=600, anchor="nw")
-
+            
+    def reset_secondtab(self):
+        self.reset_first_tab()
+        self.secondtab_opened = False
+        if self.label7 is not None:
+            self.label7.config(image='')
+            self.label7.image = None
+        if self.label8 is not None:
+            self.label8.config(image='')
+            self.label8.image = None
+        if self.label9 is not None:
+            self.label9.config(image='')
+            self.label9.image = None
+        if self.label10 is not None:
+            self.label10.config(image='')
+            self.label10.image = None 
+        if self.label11 is not None:
+            self.label11.config(image='')
+            self.label11.image = None
+        if self.label12 is not None:
+            self.label12.config(image='')
+            self.label12.image = None
+        self.button_label7.destroy()
+        self.button_label8.destroy()
+        self.button_label9.destroy()
+        self.button_label10.destroy()
+        self.button_label11.destroy()    
+        self.button_label12.destroy()
 
     def thirdtab(self):
+        self.reset_secondtab()
         #Show Font Library tab
         if self.thirdtab_opened:
             messagebox.showinfo("Already opened","Third tab is already opened!")
@@ -471,7 +532,7 @@ class Bhakalo:
 
             self.button_nextpage = ttk.Button(self.right_frame,text ="4>", style="Rounded.TButton",command=self.fourthtab)
             self.button_nextpage.pack()
-            self.button_nextpage.place(x=950,y=625,anchor='nw')         
+            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
 
             self.thirdtab_opened = True
 
@@ -489,7 +550,7 @@ class Bhakalo:
             self.label13.place(x=100, y=150, anchor="nw")
             self.label13.bind("<Button-1>", self.quinceClicked)
 
-            self.button_label13 = ttk.Button(self.right_frame,text ="Quince 525₹/kg", style="Rounded.TButton",command=self.quinceClicked)
+            self.button_label13 = ttk.Button(self.right_frame,text ="Quince 525₹/kg", style="Rounded.TButton",command=lambda f="Quince", p=525: self.cart_tab(f, p))
             self.button_label13.pack()
             self.button_label13.place(x=100,y=340,anchor='nw')
             
@@ -517,7 +578,7 @@ class Bhakalo:
             self.label14.place(x=425, y=150, anchor="nw")
             self.label14.bind("<Button-1>", self.tomatoClicked)
 
-            self.button_label14 = ttk.Button(self.right_frame,text ="Tomato 40₹/kg", style="Rounded.TButton",command=self.tomatoClicked)
+            self.button_label14 = ttk.Button(self.right_frame,text ="Tomato 40₹/kg", style="Rounded.TButton",command=lambda f="Tomato", p=40: self.cart_tab(f, p))
             self.button_label14.pack()
             self.button_label14.place(x=425,y=340,anchor='nw')
 
@@ -545,7 +606,7 @@ class Bhakalo:
             self.label15.place(x=750, y=150, anchor="nw")
             self.label15.bind("<Button-1>", self.zucchiniClicked)
 
-            self.button_label15 = ttk.Button(self.right_frame,text="Zucchini 120₹/kg", style="Rounded.TButton",command=self.zucchiniClicked)
+            self.button_label15 = ttk.Button(self.right_frame,text="Zucchini 120₹/kg", style="Rounded.TButton",command=lambda f="Zucchini", p=120: self.cart_tab(f, p))
             self.button_label15.pack()
             self.button_label15.place(x=750,y=340,anchor='nw')
 
@@ -574,7 +635,7 @@ class Bhakalo:
             self.label16.place(x=100, y=400, anchor="nw")
             self.label16.bind("<Button-1>", self.custardappleClicked)
 
-            self.button_label16 = ttk.Button(self.right_frame,text="Custardapple 140₹/kg", style="Rounded.TButton",command=self.custardappleClicked)
+            self.button_label16 = ttk.Button(self.right_frame,text="Custardapple 140₹/kg", style="Rounded.TButton",command=lambda f="Custardapple", p=140: self.cart_tab(f, p))
             self.button_label16.pack()
             self.button_label16.place(x=100,y=600,anchor='nw')
 
@@ -602,7 +663,7 @@ class Bhakalo:
             self.label17.place(x=425, y=400, anchor="nw")
             self.label17.bind("<Button-1>", self.kiwiClicked)
 
-            self.button_label17 = ttk.Button(self.right_frame,text='Kiwi 300₹/kg', style="Rounded.TButton",command=self.kiwiClicked)
+            self.button_label17 = ttk.Button(self.right_frame,text='Kiwi 300₹/kg', style="Rounded.TButton",command=lambda f="Kiwi", p=300: self.cart_tab(f, p))
             self.button_label17.pack()
             self.button_label17.place(x=425,y=600,anchor='nw')
 
@@ -631,7 +692,7 @@ class Bhakalo:
             self.label18.bind("<Button-1>", self.pomegranateClicked)
 
 
-            self.button_label18 = ttk.Button(self.right_frame,text="Pomegranate 110₹/kg", style="Rounded.TButton",command=self.pomegranateClicked)
+            self.button_label18 = ttk.Button(self.right_frame,text="Pomegranate 110₹/kg", style="Rounded.TButton",command=lambda f="Pomegranate", p=110: self.cart_tab(f, p))
             self.button_label18.pack()
             self.button_label18.place(x=750,y=600,anchor='nw')
 
@@ -645,8 +706,40 @@ class Bhakalo:
             self.l18.image_types = img
             self.l18.pack()
             self.l18.place(x=925, y=600, anchor="nw")
+    #this is method for 4> to remove first 3 tabs
+    def reset_thirdtab(self):
+        self.thirdtab_opened = False
+        self.reset_first_tab()
+        
+        self.reset_secondtab()
+        if self.label13 is not None:
+            self.label13.config(image='')
+            self.label13.image = None  
+        if self.label14 is not None:
+            self.label14.config(image='')
+            self.label14.image = None
+        if self.label15 is not None:
+            self.label15.config(image='')
+            self.label15.image = None
+        if self.label16 is not None:
+            self.label16.config(image='')
+            self.label16.image = None
+        if self.label17 is not None:
+            self.label17.config(image='')
+            self.label17.image = None
+        if self.label18 is not None:
+            self.label18.config(image='')
+            self.label18.image = None                         
+        self.button_label13.destroy()
+        self.button_label14.destroy()
+        self.button_label15.destroy()
+        self.button_label16.destroy()
+        self.button_label17.destroy()
+        self.button_label18.destroy()
+
 
     def fourthtab(self):
+        self.reset_thirdtab()
         #Show Font Library tab
         if self.fourthtab_opened:
             messagebox.showinfo("Already opened","Fourth tab is already opened!")
@@ -673,7 +766,7 @@ class Bhakalo:
 
             self.button_nextpage = ttk.Button(self.right_frame,text ="5>", style="Rounded.TButton",command=self.fifthtab)
             self.button_nextpage.pack()
-            self.button_nextpage.place(x=950,y=625,anchor='nw')         
+            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
 
             self.fourthtab_opened = True
            
@@ -692,7 +785,7 @@ class Bhakalo:
             self.label19.place(x=100, y=150, anchor="nw")
             self.label19.bind("<Button-1>", self.blackberryClicked)
 
-            self.button_label19 = ttk.Button(self.right_frame,text ="Blackberry 1500₹/kg", style="Rounded.TButton",command=self.blackberryClicked)
+            self.button_label19 = ttk.Button(self.right_frame,text ="Blackberry 1500₹/kg", style="Rounded.TButton",command=lambda f="Blackberry", p=1500: self.cart_tab(f, p))
             self.button_label19.pack()
             self.button_label19.place(x=100,y=340,anchor='nw')
 
@@ -722,7 +815,7 @@ class Bhakalo:
             self.label20.place(x=425, y=150, anchor="nw")
             self.label20.bind("<Button-1>", self.grapesClicked)
 
-            self.button_label20 = ttk.Button(self.right_frame,text ="Grapes 80₹/kg", style="Rounded.TButton",command=self.grapesClicked)
+            self.button_label20 = ttk.Button(self.right_frame,text ="Grapes 80₹/kg", style="Rounded.TButton",command=lambda f="Grapes", p=80: self.cart_tab(f, p))
             self.button_label20.pack()
             self.button_label20.place(x=425,y=340,anchor='nw')
 
@@ -751,7 +844,7 @@ class Bhakalo:
             self.label21.place(x=750, y=150, anchor="nw")
             self.label21.bind("<Button-1>", self.pearClicked)
 
-            self.button_label21 = ttk.Button(self.right_frame,text="Pear 180₹/kg", style="Rounded.TButton",command=self.pearClicked)
+            self.button_label21 = ttk.Button(self.right_frame,text="Pear 180₹/kg", style="Rounded.TButton",command=lambda f="Pear", p=180: self.cart_tab(f, p))
             self.button_label21.pack()
             self.button_label21.place(x=750,y=340,anchor='nw')
 
@@ -780,7 +873,7 @@ class Bhakalo:
             self.label22.place(x=100, y=400, anchor="nw")
             self.label22.bind("<Button-1>", self.avacadoClicked)
 
-            self.button_label22 = ttk.Button(self.right_frame,text="Avacado 250₹/kg", style="Rounded.TButton",command=self.avacadoClicked)
+            self.button_label22 = ttk.Button(self.right_frame,text="Avacado 250₹/kg", style="Rounded.TButton",command=lambda f="Avacado", p=250: self.cart_tab(f, p))
             self.button_label22.pack()
             self.button_label22.place(x=100,y=600,anchor='nw')
 
@@ -809,7 +902,7 @@ class Bhakalo:
             self.label23.place(x=425, y=400, anchor="nw")
             self.label23.bind("<Button-1>", self.lichiClicked)
 
-            self.button_label23 = ttk.Button(self.right_frame,text='Lichi 275₹/kg', style="Rounded.TButton",command=self.lichiClicked)
+            self.button_label23 = ttk.Button(self.right_frame,text='Lichi 275₹/kg', style="Rounded.TButton",command=lambda f="Lichi", p=275: self.cart_tab(f, p))
             self.button_label23.pack()
             self.button_label23.place(x=425,y=600,anchor='nw')
 
@@ -839,7 +932,7 @@ class Bhakalo:
             self.label24.place(x=750, y=400, anchor="nw")
             self.label24.bind("<Button-1>", self.blueberryClicked)
 
-            self.button_label24 = ttk.Button(self.right_frame,text="Blueberry 750₹/kg", style="Rounded.TButton",command=self.blueberryClicked)
+            self.button_label24 = ttk.Button(self.right_frame,text="Blueberry 750₹/kg", style="Rounded.TButton",command=lambda f="Blueberry", p=750: self.cart_tab(f, p))
             self.button_label24.pack()
             self.button_label24.place(x=750,y=600,anchor='nw')
 
@@ -853,8 +946,41 @@ class Bhakalo:
             self.l24.image_types = img
             self.l24.pack()
             self.l24.place(x=925, y=600, anchor="nw")
+    #this is method for 4> to remove last 4 tabs
+    def reset_fourthtab(self):
+        self.fourthtab_opened = False
+        self.reset_first_tab()
+        self.reset_secondtab()
+        self.reset_thirdtab()
+        if self.label19 is not None:
+            self.label19.config(image='')
+            self.label19.image = None
+        if self.label20 is not None:
+                    self.label20.config(image='')
+                    self.label20.image = None           
+        if self.label21 is not None:
+                    self.label21.config(image='')
+                    self.label21.image = None
+        if self.label22 is not None:
+                    self.label22.config(image='')
+                    self.label22.image = None
+        if self.label23 is not None:
+                    self.label23.config(image='')
+                    self.label23.image = None
+        if self.label24 is not None:
+                    self.label24.config(image='')
+                    self.label24.image = None
+        self.button_label19.destroy()
+        self.button_label20.destroy()
+        self.button_label21.destroy()
+        self.button_label22.destroy()
+        self.button_label23.destroy()
+        self.button_label24.destroy()            
 
+
+    
     def fifthtab(self):
+        self.reset_fourthtab()
         #Show Font Library tab
         if self.fifthtab_opened:
             messagebox.showinfo("Already opened","Fifth tab is already opened!")
@@ -879,9 +1005,10 @@ class Bhakalo:
             self.input_label.pack()
             self.input_label.place(x=50,y=100,anchor="nw")  
 
-            self.button_nextpage = ttk.Button(self.right_frame,text =" Back", style="Rounded.TButton",command=self.cart_tab)
+            
+            self.button_nextpage = ttk.Button(self.right_frame,text =" Start Over", style="Rounded.TButton",command=self.fruit_tab)
             self.button_nextpage.pack()
-            self.button_nextpage.place(x=950,y=625,anchor='nw')         
+            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
 
             self.fifthtab_opened = True
 
@@ -899,7 +1026,7 @@ class Bhakalo:
             self.label25.place(x=100, y=150, anchor="nw")
             self.label25.bind("<Button-1>", self.muskmelonClicked)
 
-            self.button_label25 = ttk.Button(self.right_frame,text ="Muskmelon 52₹/kg", style="Rounded.TButton",command=self.muskmelonClicked)
+            self.button_label25 = ttk.Button(self.right_frame,text ="Muskmelon 52₹/kg", style="Rounded.TButton",command=lambda f="Muskmelon", p=52: self.cart_tab(f, p))
             self.button_label25.pack()
             self.button_label25.place(x=100,y=340,anchor='nw')
 
@@ -928,7 +1055,7 @@ class Bhakalo:
             self.label26.place(x=425, y=150, anchor="nw")
             self.label26.bind("<Button-1>", self.papayaClicked)
 
-            self.button_label26 = ttk.Button(self.right_frame,text ="Papaya 90₹/kg", style="Rounded.TButton",command=self.papayaClicked)
+            self.button_label26 = ttk.Button(self.right_frame,text ="Papaya 90₹/kg", style="Rounded.TButton",command=lambda f="Papaya", p=90: self.cart_tab(f, p))
             self.button_label26.pack()
             self.button_label26.place(x=425,y=340,anchor='nw')
 
@@ -957,7 +1084,7 @@ class Bhakalo:
             self.label27.place(x=750, y=150, anchor="nw")
             self.label27.bind("<Button-1>", self.peachClicked)
 
-            self.button_label27 = ttk.Button(self.right_frame,text="Peach 630₹/kg", style="Rounded.TButton",command=self.peachClicked)
+            self.button_label27 = ttk.Button(self.right_frame,text="Peach 630₹/kg", style="Rounded.TButton",command=lambda f="Peach", p=630: self.cart_tab(f, p))
             self.button_label27.pack()
             self.button_label27.place(x=750,y=340,anchor='nw')
 
@@ -986,7 +1113,7 @@ class Bhakalo:
             self.label28.place(x=100, y=400, anchor="nw")
             self.label28.bind("<Button-1>", self.guavaClicked)
 
-            self.button_label28 = ttk.Button(self.right_frame,text="Gauva 115₹/kg", style="Rounded.TButton",command=self.guavaClicked)
+            self.button_label28 = ttk.Button(self.right_frame,text="Gauva 115₹/kg", style="Rounded.TButton",command=lambda f="Gauva", p=115: self.cart_tab(f, p))
             self.button_label28.pack()
             self.button_label28.place(x=100,y=600,anchor='nw')
 
@@ -1015,7 +1142,7 @@ class Bhakalo:
             self.label29.place(x=425, y=400, anchor="nw")
             self.label29.bind("<Button-1>", self.grapefruitClicked)
 
-            self.button_label29 = ttk.Button(self.right_frame,text='Grapefruit 129₹/kg', style="Rounded.TButton",command=self.grapefruitClicked)
+            self.button_label29 = ttk.Button(self.right_frame,text='Grapefruit 129₹/kg', style="Rounded.TButton",command=lambda f="Grapefruit", p=129: self.cart_tab(f, p))
             self.button_label29.pack()
             self.button_label29.place(x=425,y=600,anchor='nw')
 
@@ -1044,7 +1171,7 @@ class Bhakalo:
             self.label30.place(x=750, y=400, anchor="nw")
             self.label.bind("<Button-1>", self.raspberryClicked)
 
-            self.button_label30 = ttk.Button(self.right_frame,text="Raspberry 150₹/kg", style="Rounded.TButton",command=self.raspberryClicked)
+            self.button_label30 = ttk.Button(self.right_frame,text="Raspberry 150₹/kg", style="Rounded.TButton",command=lambda f="Raspberry", p=150: self.cart_tab(f, p))
             self.button_label30.pack()
             self.button_label30.place(x=750,y=600,anchor='nw')
 
@@ -1057,9 +1184,45 @@ class Bhakalo:
             self.l30 = tk.Label(self.right_frame, image=img, background="#fffce9")
             self.l30.image_types = img
             self.l30.pack()
-            self.l30.place(x=925, y=600, anchor="nw")   
+            self.l30.place(x=925, y=600, anchor="nw") 
    
-          
+    def reset_fifthtab(self):
+        self.fifthtab_opened = False
+        self.reset_first_tab()
+        self.reset_secondtab()
+        self.reset_thirdtab()
+        self.reset_fourthtab()
+        
+        if self.label25 is not None:
+                        self.label25.config(image='')
+                        self.label25.image = None
+        if self.label26 is not None:
+                        self.label26.config(image='')
+                        self.label26.image = None                       
+        if self.label27 is not None:
+                        self.label27.config(image='')
+                        self.label27.image = None        
+        if self.label28 is not None:
+                        self.label28.config(image='')
+                        self.label28.image = None
+        if self.label29 is not None:
+                        self.label29.config(image='')
+                        self.label29.image = None
+        if self.label30 is not None:
+                        self.label30.config(image='')
+                        self.label30.image = None
+        self.button_label25.destroy()
+        self.button_label26.destroy()
+        self.button_label27.destroy()
+        self.button_label28.destroy()
+        self.button_label29.destroy()
+        self.button_label30.destroy()                
+
+
+
+
+
+
     def setup_ui(self):
 
         #Create the background frame
@@ -1119,7 +1282,7 @@ class Bhakalo:
         self.right_frame.pack(side=tk.RIGHT)
 
         #Create a "Back" button
-        self.back_button = ttk.Button(self.left_frame,text="Back",style="Rounded.TButton",command=self.reset_ui)
+        self.back_button = ttk.Button(self.left_frame,text="Back",style="Rounded.TButton",command=self.reset_fifthtab)
         self.back_button.pack()
         self.back_button.place(x=75,y=630,anchor="nw")
 
@@ -1813,159 +1976,27 @@ class Bhakalo:
 
         else:
             messagebox.showerror("Error", f"Failed to retrieve nutrition information for {food_name}")
-    def reset_buttons(self):
-        self.button_label1.destroy()
-        self.button_label2.destroy()
-        self.button_label3.destroy()
-        self.button_label4.destroy()
-        self.button_label5.destroy()
-        self.button_label6.destroy()
-        self.button_label7.destroy()
-        self.button_label8.destroy()
-        self.button_label9.destroy()
-        self.button_label10.destroy()
-        self.button_label11.destroy()    
-        self.button_label12.destroy()
-        self.button_label13.destroy()
-        self.button_label14.destroy()
-        self.button_label15.destroy()
-        self.button_label16.destroy()
-        self.button_label17.destroy()
-        self.button_label18.destroy()
-        self.button_label19.destroy()
-        self.button_label20.destroy()
-        self.button_label21.destroy()
-        self.button_label22.destroy()
-        self.button_label23.destroy()
-        self.button_label24.destroy()
-        self.button_label25.destroy()
-        self.button_label26.destroy()
-        self.button_label27.destroy()
-        self.button_label28.destroy()
-        self.button_label29.destroy()
-        self.button_label30.destroy()
-
-    def reset_labels(self):
+   
+       
+      
+    def reset_ui(self):
+        self.reset_images()
+        self.reset_buttons()
+        self.reset_labels()
+        self.reset_fifthtab()
         for widget in self.additional_widgets:
             widget.destroy()
         self.additional_widgets = []
         self.heading_label.destroy()
         self.input_label.destroy()
 
-    def reset_images(self):
-        self.label1.config(image='')
-        self.label1.image = None
-        
-        self.label2.config(image='')
-        self.label2.image = None
-        
-        self.label3.config(image='')
-        self.label3.image = None
-        
-        self.label4.config(image='')
-        self.label4.image = None
-
-        self.label5.config(image='')
-        self.label5.image = None
-
-        self.label6.config(image='')
-        self.label6.image = None
-
-        self.label7.config(image='')
-        self.label7.image = None
-
-        self.label8.config(image='')
-        self.label8.image = None
-
-        self.label8.config(image='')
-        self.label8.image = None
-
-        self.label9.config(image='')
-        self.label9.image = None
-
-        self.label10.config(image='')
-        self.label10.image = None
-
-        self.label11.config(image='')
-        self.label11.image = None
-
-        self.label12.config(image='')
-        self.label12.image = None
-
-
-        self.label13.config(image='')
-        self.label13.image = None
-
-        self.label14.config(image='')
-        self.label14.image = None
-
-        self.label15.config(image='')
-        self.label15.image = None
-
-        self.label16.config(image='')
-        self.label16.image = None
-
-        self.label17.config(image='')
-        self.label17.image = None
-
-        self.label18.config(image='')
-        self.label18.image = None
-
-        self.label19.config(image='')
-        self.label19.image = None
-
-        self.label20.config(image='')
-        self.label20.image = None
-
-        self.label21.config(image='')
-        self.label21.image = None
-
-        self.label22.config(image='')
-        self.label22.image = None
-
-        self.label23.config(image='')
-        self.label23.image = None
-
-        self.label24.config(image='')
-        self.label24.image = None
-
-        self.label25.config(image='')
-        self.label25.image = None
-
-        self.label26.config(image='')
-        self.label26.image = None
-
-        self.label27.config(image='')
-        self.label27.image = None
-
-        self.label28.config(image='')
-        self.label28.image = None
-
-        self.label29.config(image='')
-        self.label29.image = None
-
-        self.label30.config(image='')
-        self.label30.image = None
-
-    
-   
-        
-
-      
-        
-   
-
-      
-    def reset_ui(self):
         # Reset the entire UI by calling individual reset methods
         self.fruit_tab_opened = False
         self.secondtab_opened = False
         self.thirdtab_opened = False
         self.fourthtab_opened = False
         self.fifthtab_opened = False
-        self.reset_images()
-        self.reset_buttons()
-        self.reset_labels()
+        
     def run(self):
         #Run the Tkinter main loop
         self.root.mainloop()
