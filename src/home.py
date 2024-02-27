@@ -29,7 +29,7 @@ class Bhakalo:
         self.table_window = None
         self.table_label = None
         self.label7 = None
-        self.fruit_tab()
+       
 
 
         
@@ -262,6 +262,21 @@ class Bhakalo:
             if self.l1 is not None:
                 self.l1.config(image='')
                 self.l1.image = None
+            if self.l2 is not None:
+                self.l2.config(image='')
+                self.l2.image = None
+            if self.l3 is not None:
+                self.l3.config(image='')
+                self.l3.image = None
+            if self.l4 is not None:
+                self.l4.config(image='')
+                self.l4.image = None
+            if self.l5 is not None:
+                self.l5.config(image='')
+                self.l5.image = None
+            if self.l6 is not None:
+                self.l6.config(image='')
+                self.l6.image = None
 
             self.button_label1.destroy()
             self.button_label2.destroy()
@@ -497,6 +512,25 @@ class Bhakalo:
         if self.label12 is not None:
             self.label12.config(image='')
             self.label12.image = None
+        if self.l7 is not None:
+            self.l7.config(image='')
+            self.l7.image = None
+        if self.l8 is not None:
+            self.l8.config(image='')
+            self.l8.image = None
+        if self.l9 is not None:
+            self.l9.config(image='')
+            self.l9.image = None
+        if self.l10 is not None:
+            self.l10.config(image='')
+            self.l10.image = None
+        if self.l11 is not None:
+            self.l11.config(image='')
+            self.l11.image = None
+        if self.l12 is not None:
+            self.l12.config(image='')
+            self.l12.image = None
+
         self.button_label7.destroy()
         self.button_label8.destroy()
         self.button_label9.destroy()
@@ -729,7 +763,27 @@ class Bhakalo:
             self.label17.image = None
         if self.label18 is not None:
             self.label18.config(image='')
-            self.label18.image = None                         
+            self.label18.image = None 
+
+        if self.l13 is not None:
+            self.l13.config(image='')
+            self.l13.image = None
+        if self.l14 is not None:
+            self.l14.config(image='')
+            self.l14.image = None
+        if self.l15 is not None:
+            self.l15.config(image='')
+            self.l15.image = None
+        if self.l16 is not None:
+            self.l16.config(image='')
+            self.l16.image = None
+        if self.l17 is not None:
+            self.l17.config(image='')
+            self.l17.image = None
+        if self.l18 is not None:
+            self.l18.config(image='')
+            self.l18.image = None
+
         self.button_label13.destroy()
         self.button_label14.destroy()
         self.button_label15.destroy()
@@ -970,6 +1024,25 @@ class Bhakalo:
         if self.label24 is not None:
                     self.label24.config(image='')
                     self.label24.image = None
+
+        if self.l19 is not None:
+            self.l19.config(image='')
+            self.l19.image = None
+        if self.l20 is not None:
+            self.l20.config(image='')
+            self.l20.image = None
+        if self.l21 is not None:
+            self.l21.config(image='')
+            self.l21.image = None
+        if self.l22 is not None:
+            self.l22.config(image='')
+            self.l22.image = None
+        if self.l23 is not None:
+            self.l23.config(image='')
+            self.l23.image = None
+        if self.l24 is not None:
+            self.l24.config(image='')
+            self.l24.image = None            
         self.button_label19.destroy()
         self.button_label20.destroy()
         self.button_label21.destroy()
@@ -1006,9 +1079,7 @@ class Bhakalo:
             self.input_label.place(x=50,y=100,anchor="nw")  
 
             
-            self.button_nextpage = ttk.Button(self.right_frame,text =" Start Over", style="Rounded.TButton",command=self.fruit_tab)
-            self.button_nextpage.pack()
-            self.button_nextpage.place(x=1000,y=675,anchor='nw')         
+                    
 
             self.fifthtab_opened = True
 
@@ -1211,6 +1282,25 @@ class Bhakalo:
         if self.label30 is not None:
                         self.label30.config(image='')
                         self.label30.image = None
+        
+        if self.l25 is not None:
+            self.l25.config(image='')
+            self.l25.image = None
+        if self.l26 is not None:
+            self.l26.config(image='')
+            self.l26.image = None
+        if self.l27 is not None:
+            self.l27.config(image='')
+            self.l27.image = None
+        if self.l28 is not None:
+            self.l28.config(image='')
+            self.l28.image = None
+        if self.l29 is not None:
+            self.l29.config(image='')
+            self.l29.image = None
+        if self.l30 is not None:
+            self.l30.config(image='')
+            self.l30.image = None                
         self.button_label25.destroy()
         self.button_label26.destroy()
         self.button_label27.destroy()
@@ -1281,10 +1371,7 @@ class Bhakalo:
         self.right_frame = tk.Frame(self.background_frame,bg="#BCD2E8",width=(self.screen_width - self.screen_width // 6),height=self.screen_height)
         self.right_frame.pack(side=tk.RIGHT)
 
-        #Create a "Back" button
-        self.back_button = ttk.Button(self.left_frame,text="Back",style="Rounded.TButton",command=self.reset_fifthtab)
-        self.back_button.pack()
-        self.back_button.place(x=75,y=630,anchor="nw")
+        
 
         #Track whether Font Library is open and additional widgets
         self.fruit_tab_opened = False
