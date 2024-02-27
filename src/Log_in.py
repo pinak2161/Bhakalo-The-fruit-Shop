@@ -20,7 +20,7 @@ window = Tk()
 window.title("NUTRI FOOD")
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(script_directory, "../assets/bg.jpg")
+image_path = os.path.join(script_directory, "../assets/Images/bg.jpg")
 
 # Use PIL to open the image and convert it to Tkinter PhotoImage
 original_image = Image.open(image_path)
@@ -127,24 +127,30 @@ def create_signup_widgets(frame):
     Button(frame, width=6, text='Sign in', border=0, bg='white', cursor='hand2', fg='#57a1f8',
            command=lambda: create_signin_widgets(frame)).place(x=200, y=340)
 
-def create_signin_widgets(frame):
+def create_signin_widgets(frame_or_username):
     # Destroy existing widgets in the frame
-    for widget in frame.winfo_children():
-        widget.destroy()
+    if isinstance(frame_or_username, tk.Frame):
+        for widget in frame_or_username.winfo_children():
+            widget.destroy()
 
-    Label(frame, text='Sign in', fg="#57a1f8", bg='white', font=('Microsoft Yahei UI Light', 23, 'bold')).place(x=130, y=5)
+        Label(frame_or_username, text='Sign in', fg="#57a1f8", bg='white', font=('Microsoft Yahei UI Light', 23, 'bold')).place(x=130, y=5)
 
-    email_entry = create_entry(frame, "Username", 80)
-    password_entry = create_entry(frame, "Password", 150)
+        email_entry = create_entry(frame_or_username, "Username", 80)
+        password_entry = create_entry(frame_or_username, "Password", 150)
 
-    Button(frame, width=39, pady=7, text='Sign in', bg='#57a1f8', fg='white', border=0,
-           command=lambda: signin(email_entry, password_entry)).place(x=35, y=230)
+        Button(frame_or_username, width=39, pady=7, text='Sign in', bg='#57a1f8', fg='white', border=0,
+               command=lambda: signin(email_entry, password_entry)).place(x=35, y=230)
 
-    Label(frame, text='Don\'t have an account?', fg='black', bg='white',
-          font=('Microsoft YaHei UI Light', 9)).place(x=60, y=280)
+        Label(frame_or_username, text='Don\'t have an account?', fg='black', bg='white',
+              font=('Microsoft YaHei UI Light', 9)).place(x=60, y=280)
 
-    Button(frame, width=12, text='Sign up', border=0, bg='white', cursor='hand2', fg='#57a1f8',
-           command=lambda: create_signup_widgets(frame)).place(x=200, y=280)
+        Button(frame_or_username, width=12, text='Sign up', border=0, bg='white', cursor='hand2', fg='#57a1f8',
+               command=lambda: create_signup_widgets(frame_or_username)).place(x=200, y=280)
+    else:
+        # Handle the case where a username is passed instead of a frame
+        # You might want to implement a different behavior for this case
+        pass
+
 
 
 def create_entry(frame, placeholder, y_position):
