@@ -22,7 +22,7 @@ class Bhakalo:
         }
         
         self.root.geometry(f"{self.screen_width}x{self.screen_height}")
-        self.root.configure(bg = "#192f44")
+        self.root.configure(bg="#C8C8C0")
         self.original_label_text = "Welcome to Bhakalo"
         #Setup the UI components
         self.setup_ui()
@@ -34,6 +34,7 @@ class Bhakalo:
 
         
     def fruit_tab(self):
+        self.destroy_myAccount()
         #Show Font Library tab
         if self.fruit_tab_opened:
             pass
@@ -1006,6 +1007,7 @@ class Bhakalo:
         self.reset_first_tab()
         self.reset_secondtab()
         self.reset_thirdtab()
+       
         if self.label19 is not None:
             self.label19.config(image='')
             self.label19.image = None
@@ -1049,11 +1051,12 @@ class Bhakalo:
         self.button_label22.destroy()
         self.button_label23.destroy()
         self.button_label24.destroy()            
-
+        self.button_nextpage.destroy()
 
     
     def fifthtab(self):
         self.reset_fourthtab()
+        
         #Show Font Library tab
         if self.fifthtab_opened:
             messagebox.showinfo("Already opened","Fifth tab is already opened!")
@@ -1370,11 +1373,6 @@ class Bhakalo:
         self.right_frame = tk.Frame(self.background_frame,bg="#BCD2E8",width=(self.screen_width - self.screen_width // 6),height=self.screen_height)
         self.right_frame.pack(side=tk.RIGHT)
 
-        #Create a "Back" button
-        self.back_button = ttk.Button(self.left_frame,text="Return to Store",style="Rounded.TButton",command=self.fruit_tab)
-        self.back_button.pack()
-        self.back_button.place(x=75,y=630,anchor="nw")
-
         #Track whether Font Library is open and additional widgets
         self.fruit_tab_opened = False
         self.secondtab_opened = False
@@ -1411,6 +1409,7 @@ class Bhakalo:
     
     
     def account_tab(self):
+       
         #Show Font Library tab
         if self.account_tab_opened:
             messagebox.showinfo("Already opened","My Account page is already opened!")
@@ -1420,7 +1419,7 @@ class Bhakalo:
                 widget.destroy()
             self.additional_widgets = []
         self.account_tab_opened =True
-        self.bt1 = ttk.Button(self.right_frame,text ="Your Information", style="Rounded.TButton")
+        self.bt1 = ttk.Button(self.right_frame,text ="Your Details", style="Rounded.TButton",command=self.your_details)
         self.bt1.pack()
         self.bt1.place(x=150,y=100,anchor='nw')
 
@@ -1432,19 +1431,18 @@ class Bhakalo:
         self.bt3.pack()
         self.bt3.place(x=150,y=200,anchor='nw')
 
-        self.bt4 = ttk.Button(self.right_frame,text ="Your Rewards", style="Rounded.TButton")
-        self.bt4.pack()
-        self.bt4.place(x=600,y=200,anchor='nw')
 
-        self.bt5 = ttk.Button(self.right_frame,text ="See all", style="Rounded.TButton")
-        self.bt5.pack()
-        self.bt5.place(x=150,y=300,anchor='nw')
-        self.reset_ui()
-    def destroy_myAccount(self,event=None):
-        self.bt1.destroy()
-        self.bt2.destroy()
-        self.bt3.destroy()
-        self.bt4.destroy()
+    
+    def your_details(self):
+        # Create a new Toplevel window for the table
+        self.table_window = tk.Toplevel(self.root)
+        self.table_window.title("Your Details")
+
+        # Create and pack a Label for the nutritional information
+        self.table_label = tk.Label(self.table_window, text="Welcome to Bhakalo", font=("cosmic Sans", 16, "bold"))
+        self.table_label.pack()
+
+        
             
     def cart_tab(self,food_name,price):
         quantity = self.cart.get(food_name, 0) + 1
@@ -2069,9 +2067,6 @@ class Bhakalo:
        
       
     def reset_ui(self):
-        self.reset_images()
-        self.reset_buttons()
-        self.reset_labels()
         self.reset_fifthtab()
         for widget in self.additional_widgets:
             widget.destroy()
@@ -2084,8 +2079,13 @@ class Bhakalo:
         self.secondtab_opened = False
         self.thirdtab_opened = False
         self.fourthtab_opened = False
+
         self.fifthtab_opened = False
-        
+    def destroy_myAccount(self,event=None):
+        self.bt1.destroy()
+        self.bt2.destroy()
+        self.bt3.destroy()
+       
     def run(self):
         #Run the Tkinter main loop
         self.root.mainloop()
