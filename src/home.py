@@ -22,7 +22,7 @@ class Bhakalo:
         }
         
         self.root.geometry(f"{self.screen_width}x{self.screen_height}")
-        self.root.configure(bg="#C8C8C0")
+        self.root.configure(bg="#c9c8c1")
         self.original_label_text = "Welcome to Bhakalo"
         #Setup the UI components
         self.setup_ui()
@@ -50,7 +50,7 @@ class Bhakalo:
 
             
             #Create and pack widgets for label
-            self.heading_label = tk.Label(self.right_frame,text="Fruits",font=("Calibri ",20,"bold"),fg=tk_color)
+            self.heading_label = tk.Label(self.right_frame,text="Fruits",font=("Calibri ",20,"bold"),fg=tk_color,bg="#c9c8c1")
             self.heading_label.pack()
             self.heading_label.place(x=50,y=50,anchor="nw")
 
@@ -1322,7 +1322,7 @@ class Bhakalo:
         self.background_frame.pack()
 
         #Create left frame for navigation and buttons
-        self.left_frame = tk.Frame(self.background_frame, bg = "#ff9147",width=self.screen_width // 7,height=self.screen_height)
+        self.left_frame = tk.Frame(self.background_frame, bg = "#889641",width=self.screen_width // 7,height=self.screen_height)
         self.left_frame.pack(side=tk.LEFT)
 
         #Set up button Styling
@@ -1363,7 +1363,7 @@ class Bhakalo:
         self.label.place(x=50, y=130, anchor="nw")
 
         # Welcome user
-        welcome_label = tk.Label(self.left_frame, text="Welcome User", background="#00072D", fg="#BCD2E8", font=("Monotype", 24, "bold"))
+        welcome_label = tk.Label(self.left_frame, text="Welcome User", background="#889641", fg="#f2f3f7", font=("Monotype", 24, "bold"))
         welcome_label.pack()
         welcome_label.place(x=20, y=70, anchor="nw")
 
@@ -1399,8 +1399,8 @@ class Bhakalo:
         self.bg_label.place(x=0, y=0, anchor="nw")
 
         # Create a label for welcome text on top of the image
-        tk_color = "#FFA101"
-        welcome_label = tk.Label(self.right_frame, text=self.original_label_text, font=("Calibri", 50, "bold"), fg=tk_color)
+        tk_color = "#ac4455"
+        welcome_label = tk.Label(self.right_frame, text=self.original_label_text, font=("Calibri", 50, "bold"), fg=tk_color,bg="#c9c8c1" )
         welcome_label.place(relx=0.5, rely=0.5, anchor="center")
     
 
