@@ -1508,7 +1508,7 @@ class Bhakalo:
         # Create a new Toplevel window for the table
         self.table_window = tk.Toplevel(self.root)
         self.table_window.title("Nutrition Information")
-
+        self.table_window.geometry("+1300+150")
         # Create and pack a Label for the nutritional information
         self.table_label = tk.Label(self.table_window, text="Nutrition Information", font=("Calibri", 16, "bold"))
         self.table_label.pack()
