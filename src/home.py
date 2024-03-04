@@ -1467,15 +1467,15 @@ class Bhakalo:
         messagebox.showinfo("Cart", cart_content)    
     def ourblogs_tab(self):
           
-        # Replace "https://www.example.com/ourblogs" with your actual link
+
         link = "https://www.fruit-forest.com/blog"
         
-        # Open the link in the default web browser
+    
         webbrowser.open(link)
         
         
     def get_nutrition_info(self, food_name):
-        api_key = 'p5y9oPvsHagFwbduywWIYw==8eg8cKkiv8LupO2g'  # Replace with your actual Calorieninjas API key
+        api_key = 'p5y9oPvsHagFwbduywWIYw==8eg8cKkiv8LupO2g'  
 
         try:
             response = requests.get(

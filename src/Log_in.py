@@ -7,11 +7,10 @@ import os
 import subprocess
 import tkinter as tk
 
-# Initialize Firebase Admin SDK (replace 'path/to/credentials.json' with the actual path)
 cred = credentials.Certificate("setup\\bhakalo-d2b35-firebase-adminsdk-ahxcm-9ef0ccf015.json")
 initialize_app(cred)
 
-# Create the main application window
+
 from tkinter import Tk, Canvas, Label, NW
 from PIL import Image, ImageTk
 import os
@@ -22,21 +21,19 @@ window.title("NUTRI FOOD")
 script_directory = os.path.dirname(os.path.abspath(__file__))
 image_path = os.path.join(script_directory, "../assets/Images/bg.jpg")
 
-# Use PIL to open the image and convert it to Tkinter PhotoImage
 original_image = Image.open(image_path)
 
-# Resize the image to match the window size
+
 resized_image = original_image.resize((window.winfo_screenwidth(), window.winfo_screenheight()), Image.ANTIALIAS)
 bg_img = ImageTk.PhotoImage(resized_image)
 
-# Create a Canvas to hold the background image
+
 canvas = Canvas(window, width=window.winfo_screenwidth(), height=window.winfo_screenheight(), bg='white')
 canvas.pack()
 
-# Display the stretched background image
 canvas.create_image(0, 0, anchor=NW, image=bg_img)
 
-# Display the label directly on the root window
+
 Label(window, text='                   Bhakalo - The Fruit Shop                ', font=('alice', 48, 'bold'), fg='#F60639').place(x=100, y=10)
 
 def signup(email_entry, password_entry, confirm_password_entry):
